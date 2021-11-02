@@ -5,7 +5,7 @@ import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class test {
+public class TestFindMaxNumberIn2WayArray {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("nhập vào độ dài mảng cha");

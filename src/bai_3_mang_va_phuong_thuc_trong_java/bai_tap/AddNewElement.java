@@ -24,6 +24,7 @@ public class AddNewElement {
                 }
             }
         }
+
         for (int j = 0; j < newArray.length; j++) {
             System.out.println(" array[" + j + "] = " + newArray[j]);
         }
