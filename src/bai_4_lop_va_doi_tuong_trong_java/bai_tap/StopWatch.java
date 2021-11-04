@@ -27,7 +27,7 @@ public class StopWatch {
         return this.endTime - this.startTime;
     }
 
-    public static int[] selectionSort(int... a) {
+    public static void selectionSort(int... a) {
         int tempt;
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length; j++) {
@@ -38,18 +38,17 @@ public class StopWatch {
                 }
             }
         }
-        return a;
     }
 
     public static void main(String[] args) {
 
         int[] array = new int[100000];
         for (int i = 0; i < array.length; i++) {
-            array[i] = (int) Math.random() * 100;
+            array[i] = (int) (Math.random() * 100);
         }
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        stopWatch.selectionSort(array);
+        selectionSort(array);
         stopWatch.stop();
         System.out.println("result = " + stopWatch.calculate());
     }
