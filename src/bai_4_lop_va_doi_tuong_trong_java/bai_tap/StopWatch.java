@@ -48,7 +48,7 @@ public class StopWatch {
         }
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        selectionSort(array);
+        StopWatch.selectionSort(array);
         stopWatch.stop();
         System.out.println("result = " + stopWatch.calculate());
     }
