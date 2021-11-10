@@ -3,6 +3,7 @@ package bai_3_mang_va_phuong_thuc_trong_java.bai_tap;
 import java.util.Scanner;
 
 public class TotalNumberInIdentifyColumn {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("nhập vào số dòng của mảng: ");

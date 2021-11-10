@@ -1,4 +1,4 @@
-package static_property;
+package bai_5_access_modifier_static_method_static_property.thuc_hanh.static_property;
 
 public class TestStaticProperty {
 
