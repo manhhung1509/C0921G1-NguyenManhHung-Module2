@@ -1,6 +1,6 @@
 package bai_7_atstract_class_va_interface.bai_tap.interface_resizeable;
 
-public class Rectangle implements Resizeable {
+public class Rectangle extends Shape implements Resizeable {
     private double width;
     private double height;
 
@@ -29,8 +29,8 @@ public class Rectangle implements Resizeable {
         return (this.width + this.height) * 2;
     }
 
-    public double getArea() {
-        return this.width * this.height;
+    public int getArea() {
+        return (int) (this.width * this.height);
     }
 
     @Override

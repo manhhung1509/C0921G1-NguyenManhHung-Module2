@@ -1,6 +1,6 @@
 package bai_7_atstract_class_va_interface.bai_tap.interface_colorable;
 
-public class Rectangle implements Colorable{
+public class Rectangle extends Shape {
     private double width;
     private double height;
 
@@ -29,12 +29,9 @@ public class Rectangle implements Colorable{
         return (this.width + this.height) * 2;
     }
 
-    public double getArea() {
-        return this.width * this.height;
+    @Override
+    public int getArea() {
+        return (int) (this.width * this.height);
     }
 
-    @Override
-    public void howToEat() {
-        System.out.println("zzz");
-    }
 }

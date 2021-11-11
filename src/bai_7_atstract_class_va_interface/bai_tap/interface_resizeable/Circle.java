@@ -1,6 +1,6 @@
 package bai_7_atstract_class_va_interface.bai_tap.interface_resizeable;
 
-public class Circle implements Resizeable {
+public class Circle extends Shape implements Resizeable {
     private double radius;
 
     public Circle(double radius) {
@@ -15,8 +15,8 @@ public class Circle implements Resizeable {
         this.radius = radius;
     }
 
-    public double getArea() {
-        return Math.PI * this.radius * this.radius;
+    public int getArea() {
+        return (int) (Math.PI * this.radius * this.radius);
     }
 
     @Override

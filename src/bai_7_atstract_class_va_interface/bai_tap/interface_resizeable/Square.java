@@ -1,6 +1,6 @@
 package bai_7_atstract_class_va_interface.bai_tap.interface_resizeable;
 
-public class Square implements Resizeable {
+public class Square extends Shape implements Resizeable {
     private double a;
 
     public Square(double a) {
@@ -15,8 +15,8 @@ public class Square implements Resizeable {
         this.a = a;
     }
 
-    public double getArea() {
-        return this.a * this.a;
+    public int getArea() {
+        return (int) (this.a * this.a);
     }
 
     @Override

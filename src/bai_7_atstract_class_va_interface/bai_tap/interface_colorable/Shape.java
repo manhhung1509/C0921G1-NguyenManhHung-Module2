@@ -1,5 +1,8 @@
 package bai_7_atstract_class_va_interface.bai_tap.interface_colorable;
 
-public interface Colorable {
-    void howToColor();
+
+public class Shape {
+    public int getArea(){
+        return 0;
+    }
 }
