@@ -1,4 +1,4 @@
-package bai_10_DSA_danh_sach.bai_tap_lam_them.Vehicle;
+package bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle;
 
 public class MotorBike extends Vehicle {
     private int wattage;

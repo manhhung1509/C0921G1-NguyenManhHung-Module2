@@ -1,10 +1,10 @@
 package bai_10_DSA_danh_sach.bai_tap_lam_them.main_controller;
 
-import bai_10_DSA_danh_sach.bai_tap_lam_them.Functions.*;
-import bai_10_DSA_danh_sach.bai_tap_lam_them.Vehicle.Car;
-import bai_10_DSA_danh_sach.bai_tap_lam_them.Vehicle.MotorBike;
-import bai_10_DSA_danh_sach.bai_tap_lam_them.Vehicle.Truck;
-import bai_10_DSA_danh_sach.bai_tap_lam_them.Vehicle.Vehicle;
+import bai_10_DSA_danh_sach.bai_tap_lam_them.functions.*;
+import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.Car;
+import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.MotorBike;
+import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.Truck;
+import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.Vehicle;
 
 import java.util.Scanner;
 

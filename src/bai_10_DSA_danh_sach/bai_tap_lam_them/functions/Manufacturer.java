@@ -1,4 +1,4 @@
-package bai_10_DSA_danh_sach.bai_tap_lam_them.Functions;
+package bai_10_DSA_danh_sach.bai_tap_lam_them.functions;
 
 public class Manufacturer {
     public String maHangSanXuat;
