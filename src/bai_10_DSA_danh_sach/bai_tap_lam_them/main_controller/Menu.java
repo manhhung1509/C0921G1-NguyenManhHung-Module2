@@ -42,7 +42,7 @@ public class Menu {
                         addVehicle(1);
                     } else if (select == 2) {
                         addVehicle(2);
-                    } else {
+                    } else if (select == 3) {
                         addVehicle(3);
                     }
                     break;
@@ -56,7 +56,7 @@ public class Menu {
                         xeOTo.displayVehicle();
                     } else if (select == 2) {
                         xeTai.displayVehicle();
-                    } else {
+                    } else if (select == 3) {
                         xeMay.displayVehicle();
                     }
                     break;
@@ -94,7 +94,7 @@ public class Menu {
             double trongTai = Double.parseDouble(input.nextLine());
             Vehicle truck = new Truck(bienKiemSoat, hangSanXuat, namSanXuat, owner, trongTai);
             xeTai.addVehicle(truck);
-        } else {
+        } else if (num == 3) {
             System.out.println("nhập công suất: ");
             int congSuat = Integer.parseInt(input.nextLine());
             Vehicle motorbike = new MotorBike(bienKiemSoat, hangSanXuat, namSanXuat, owner, congSuat);
