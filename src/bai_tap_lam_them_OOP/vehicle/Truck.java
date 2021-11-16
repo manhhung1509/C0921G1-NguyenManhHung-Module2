@@ -1,4 +1,4 @@
-package bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle;
+package bai_tap_lam_them_OOP.vehicle;
 
 public class Truck extends Vehicle {
     private double tonnage;

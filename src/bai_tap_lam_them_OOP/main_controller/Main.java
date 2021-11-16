@@ -1,4 +1,4 @@
-package bai_10_DSA_danh_sach.bai_tap_lam_them.main_controller;
+package bai_tap_lam_them_OOP.main_controller;
 
 public class Main {
     public static void main(String[] args) {

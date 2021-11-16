@@ -1,10 +1,10 @@
-package bai_10_DSA_danh_sach.bai_tap_lam_them.main_controller;
+package bai_tap_lam_them_OOP.main_controller;
 
-import bai_10_DSA_danh_sach.bai_tap_lam_them.functions.*;
-import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.Car;
-import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.MotorBike;
-import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.Truck;
-import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.Vehicle;
+import bai_tap_lam_them_OOP.functions.*;
+import bai_tap_lam_them_OOP.vehicle.Car;
+import bai_tap_lam_them_OOP.vehicle.MotorBike;
+import bai_tap_lam_them_OOP.vehicle.Truck;
+import bai_tap_lam_them_OOP.vehicle.Vehicle;
 
 import java.util.Scanner;
 
@@ -103,24 +103,26 @@ public class Menu {
     }
 
     public void deleteVehicle() {
-        System.out.println("nhập biển kiểm soát: ");
-        String bienKiemSoat = input.nextLine();
-        xeMay.deleteVehicle(bienKiemSoat);
-        xeTai.deleteVehicle(bienKiemSoat);
-        xeOTo.deleteVehicle(bienKiemSoat);
+        String bienKiemSoat ;
 
-//        System.out.println("1. Hiện thị xe tải.\n" +
-//                "2. Hiện thị ôtô. \n" +
-//                "3. Hiện  xe máy.\n");
-//        System.out.println("mời chọn loại xe cần hiển thị: ");
-//        select = Integer.parseInt(input.nextLine());
-//        if (select == 1) {
-//            xeTai.displayVehicle();
-//        } else if (select == 2) {
-//            xeOTo.displayVehicle();
-//        } else {
-//            xeMay.displayVehicle();
-//        }
+        System.out.println("1. xóa phương tiện xe ô tô.\n" +
+                "2. xóa phương tiện xe tải. \n" +
+                "3. xóa phương tiện xe máy.\n");
+        System.out.println("mời chọn loại phương tiện cần xóa : ");
+        select = Integer.parseInt(input.nextLine());
+        if (select == 1) {
+            System.out.println("nhập biển kiểm soát: ");
+            bienKiemSoat = input.nextLine();
+            xeOTo.deleteVehicle(bienKiemSoat);
+        } else if (select == 2) {
+            System.out.println("nhập biển kiểm soát: ");
+            bienKiemSoat = input.nextLine();
+            xeTai.deleteVehicle(bienKiemSoat);
+        } else if( select ==3){
+            System.out.println("nhập biển kiểm soát: ");
+            bienKiemSoat = input.nextLine();
+            xeMay.deleteVehicle(bienKiemSoat);
+        }
     }
 
 }

@@ -1,6 +1,6 @@
-package bai_10_DSA_danh_sach.bai_tap_lam_them.functions;
+package bai_tap_lam_them_OOP.functions;
 
-import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.Vehicle;
+import bai_tap_lam_them_OOP.vehicle.Vehicle;
 
 public interface Functions {
     void addVehicle(Vehicle obj);

@@ -1,7 +1,7 @@
-package bai_10_DSA_danh_sach.bai_tap_lam_them.functions;
+package bai_tap_lam_them_OOP.functions;
 
-import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.Truck;
-import bai_10_DSA_danh_sach.bai_tap_lam_them.vehicle.Vehicle;
+import bai_tap_lam_them_OOP.vehicle.Truck;
+import bai_tap_lam_them_OOP.vehicle.Vehicle;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -27,9 +27,9 @@ public class TruckFunctions implements Functions {
             if (truckList.get(i).getLicensePlate().equals(licensePlate)) {
                 System.out.println("vui lòng xác thực muốn xóa phương tiện này:\n" + "Yes. \n" + "No.");
                 String choice = input.nextLine();
-                if (choice.equals("Yes")) {
+                if (choice.equals("yes")) {
                     truckList.remove(i);
-                    System.out.println("Đã xóa thành công");
+                    System.out.println("Đã xóa thành công \n");
                 }
             }
         }
