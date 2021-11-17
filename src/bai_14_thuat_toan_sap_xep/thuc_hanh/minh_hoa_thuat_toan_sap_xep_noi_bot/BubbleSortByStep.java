@@ -1,4 +1,4 @@
-package thuat_toan_sap_xep.thuc_hanh.minh_hoa_thuat_toan_sap_xep_noi_bot;
+package bai_14_thuat_toan_sap_xep.thuc_hanh.minh_hoa_thuat_toan_sap_xep_noi_bot;
 
 
 import java.util.Scanner;

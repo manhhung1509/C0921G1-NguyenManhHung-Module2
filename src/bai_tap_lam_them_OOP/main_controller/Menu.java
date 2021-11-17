@@ -1,6 +1,6 @@
 package bai_tap_lam_them_OOP.main_controller;
 
-import bai_tap_lam_them_OOP.functions.*;
+import bai_tap_lam_them_OOP.VehicleFunctions.*;
 import bai_tap_lam_them_OOP.vehicle.Car;
 import bai_tap_lam_them_OOP.vehicle.MotorBike;
 import bai_tap_lam_them_OOP.vehicle.Truck;

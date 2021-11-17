@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 //public class Test {
-////        public static void main(String[] args) {
+////        public static void Main(String[] args) {
 ////        HashMap<String, Integer> customers = new HashMap<>();
 ////        customers.put("John", 30);
 ////        customers.put("Mike", 28);
@@ -19,7 +19,7 @@ import java.util.Set;
 ////                System.out.println(value);
 ////            }
 ////    }
-////    public static void main(String args[]) {
+////    public static void Main(String args[]) {
 ////        // khoi tao hashMap
 ////        HashMap<Integer, String> hashMap = new HashMap<Integer, String>();
 ////        // them cac phan tu vao hashMap

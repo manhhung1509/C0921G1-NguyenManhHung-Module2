@@ -1,4 +1,4 @@
-package bai_tap_lam_them_OOP.functions;
+package bai_tap_lam_them_OOP.VehicleFunctions;
 
 import bai_tap_lam_them_OOP.vehicle.Vehicle;
 
