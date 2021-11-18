@@ -21,7 +21,7 @@ public class Rectangle {
     }
 
     public String display() {
-        return "Rectangle = {" + this.width + "," + this.height + "}";
+        return "Triangle = {" + this.width + "," + this.height + "}";
     }
 
 }
