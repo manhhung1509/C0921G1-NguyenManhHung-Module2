@@ -9,7 +9,8 @@ public class Triangle {
 
     public Triangle(double a, double b, double c) throws IllegalTriangleException {
         if (a > 0 && b > 0 && c > 0) {
-            if (a + b > c && a + c > b && b + c > a) {
+            if (a + b > c || a + c > b || b + c > a) {
+                //điều kiện đúng
                 System.out.println("a,b,c thỏa mản điều kiện");
             } else {
                 //điều kiện sai => ném ra exception
