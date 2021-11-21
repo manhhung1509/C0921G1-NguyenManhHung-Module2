@@ -1,6 +1,5 @@
 package bai_14_thuat_toan_sap_xep.thuc_hanh.cai_dat_thuat_toan_sap_xep_noi_bot;
 
-
 public class BubbleSort {
     static int[] list = {2, 3, 2, 5, 6, 1, -2, 3, 14, 12};
 
@@ -9,7 +8,7 @@ public class BubbleSort {
 
         for (int k = 1; k < list.length && needNextPass; k++) {
             needNextPass = false;
-            for (int i = 0; i < list.length - k; i++) {
+            for (int i = 0; i < list.length -k; i++) {
                 if (list[i] > list[i + 1]) {
                     int temp = list[i];
                     list[i] = list[i + 1];

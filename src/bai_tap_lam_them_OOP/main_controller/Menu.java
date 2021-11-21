@@ -18,8 +18,6 @@ public class Menu {
     int select;
 
     public void displayMenu() {
-//        int choice;
-//        int select;
         do {
             System.out.println("CHƯƠNG TRÌNH QUẢN LÝ PHƯƠNG TIỆN GIAO THÔNG");
             System.out.println("chọn chức năng: \n" + "=====================================");
