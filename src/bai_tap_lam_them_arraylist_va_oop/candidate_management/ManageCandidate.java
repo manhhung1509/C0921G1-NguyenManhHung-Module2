@@ -15,21 +15,21 @@ public class ManageCandidate implements FunctionsCandidate {
     static ArrayList<InternCandidate> internCandidateList = new ArrayList<>();
 
     static {
-        experienceList.add(new ExperienceCandiDate(1, "hung", "nguyen", 2000, "le thi tinh",
-                231431321, "hung@gmail.com", 0, 1, "java"));
-        experienceList.add(new ExperienceCandiDate(2, "hoang", "nguyen", 2000, "le thi tinh",
-                1231431231, "hung@gmail.com", 0, 2, "java"));
-        experienceList.add(new ExperienceCandiDate(3, "nha", "nguyen", 2000, "le thi tinh",
-                1231431231, "hung@gmail.com", 0, 3, "java"));
+        experienceList.add(new ExperienceCandiDate(1, "manh hung", "nguyen", 2000, "le thi tinh",
+                012312732122, "hung@gmail.com", 0, 1, "java"));
+        experienceList.add(new ExperienceCandiDate(2, "viet hoang", "le ", 2001, "le thi toan",
+                1231431231, "hoang@gmail.com", 0, 2, "c#"));
+        experienceList.add(new ExperienceCandiDate(3, "van nha", "duong", 2002, "le thi tam",
+                1231431231, "nha@gmail.com", 0, 3, "c++"));
     }
 
     static {
-        fresherCandidateList.add(new FresherCandidate(1, "hung", "nguyen", 2000, "le thi tinh",
-                1231431231, "hung@gmail.com", 1, 2, "good", "hanoiu"));
-        fresherCandidateList.add(new FresherCandidate(2, "hoang", "nguyen", 2000, "le thi tinh",
-                1231431231, "hung@gmail.com", 1, 2, "excilent", "kinhteu"));
-        fresherCandidateList.add(new FresherCandidate(3, "nha", "nguyen", 2000, "le thi tinh",
-                1231431231, "hung@gmail.com", 1, 2, "good", "quansuu"));
+        fresherCandidateList.add(new FresherCandidate(1, "thanh", "nguyen", 1989, "le thi tu",
+                1231431231, "hung@gmail.com", 1, 2, "fair", "DTU"));
+        fresherCandidateList.add(new FresherCandidate(2, "thang", "le", 1999, "le thi rieng",
+                1231431231, "hung@gmail.com", 1, 3, "excilent", "science"));
+        fresherCandidateList.add(new FresherCandidate(3, "tuan", "nguyen", 2001, "le thi ba",
+                1231431231, "hung@gmail.com", 1, 4, "good", "military academy"));
     }
 
     static {
