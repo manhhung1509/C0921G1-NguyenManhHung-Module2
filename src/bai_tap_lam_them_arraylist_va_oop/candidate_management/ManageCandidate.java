@@ -67,7 +67,7 @@ public class ManageCandidate implements FunctionsCandidate {
                 count++;
             }
         }
-        count =0;
+        count = 0;
         System.out.println("enter address of candidate : ");
         String address = sc.nextLine();
         System.out.println("enter phone of candidate : ");
@@ -107,6 +107,17 @@ public class ManageCandidate implements FunctionsCandidate {
                 ExperienceCandiDate experience = new ExperienceCandiDate(id, firstName, lastName, birthDay, address,
                         phone, email, type, expYears, proSkill);
                 experienceList.add(experience);
+                System.out.println(": Do you want to continue (Y/N)? ");
+                String c = sc.nextLine();
+                if ("y".equals(c)) {
+                    System.out.println("enter 1 to create Experience candidate, 2 to create Fresher candidate, 3 to create intern candidate");
+                    int i = Integer.parseInt(sc.nextLine());
+                    createCandidate(i);
+                } else {
+                    displayExperienceCandidate();
+                    displayFresherCandidate();
+                    displayInternCandidate();
+                }
                 break;
             case 2:
                 System.out.println("enter graduated time : ");
@@ -126,6 +137,17 @@ public class ManageCandidate implements FunctionsCandidate {
                 FresherCandidate fresherCandidate = new FresherCandidate(id, firstName, lastName, birthDay, address,
                         phone, email, type, graYear, graRank, education);
                 fresherCandidateList.add(fresherCandidate);
+                System.out.println(": Do you want to continue (Y/N)? ");
+                String d = sc.nextLine();
+                if ("y".equals(d)) {
+                    System.out.println("enter 1 to create Experience candidate, 2 to create Fresher candidate, 3 to create intern candidate");
+                    int f = Integer.parseInt(sc.nextLine());
+                    createCandidate(f);
+                } else {
+                    displayExperienceCandidate();
+                    displayFresherCandidate();
+                    displayInternCandidate();
+                }
                 break;
             case 3:
                 System.out.println("enter Majors : ");
@@ -136,7 +158,18 @@ public class ManageCandidate implements FunctionsCandidate {
                 String university = sc.nextLine();
                 InternCandidate internCandidate = new InternCandidate(id, firstName, lastName, birthDay, address,
                         phone, email, type, major, semester, university);
-                internCandidateList.add(internCandidate);
+
+                System.out.println(": Do you want to continue (Y/N)? ");
+                String t = sc.nextLine();
+                if ("y".equals(t)) {
+                    System.out.println("enter 1 to create Experience candidate, 2 to create Fresher candidate, 3 to create intern candidate");
+                    int b = Integer.parseInt(sc.nextLine());
+                    createCandidate(b);
+                } else {
+                    displayExperienceCandidate();
+                    displayFresherCandidate();
+                    displayInternCandidate();
+                }
                 break;
         }
     }
