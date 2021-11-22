@@ -1,19 +1,19 @@
-package bai_tap_lam_them_arraylist_va_oop.service;
+package review.service;
 
-import bai_tap_lam_them_arraylist_va_oop.model.Candidate;
-import bai_tap_lam_them_arraylist_va_oop.model.ExperienceCandiDate;
-import bai_tap_lam_them_arraylist_va_oop.model.FresherCandidate;
-import bai_tap_lam_them_arraylist_va_oop.model.InternCandidate;
+import review.model.Candidate;
+import review.model.ExperienceCandiDate;
+import review.model.FresherCandidate;
+import review.model.InternCandidate;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ManageCandidate implements FunctionsCandidate {
+public class ManageCandidate implements CandidateService {
     Scanner sc = new Scanner(System.in);
     static List<Candidate> candidateList = new ArrayList<>();
     int count = 0;
-    int count1 =0;
+    int count1 = 0;
 
     static {
         candidateList.add(new ExperienceCandiDate(1, "manh hung", "nguyen", 2000, "le thi tinh",
@@ -36,8 +36,7 @@ public class ManageCandidate implements FunctionsCandidate {
                 1231431231, "hung@gmail.com", 2, "ìnnformationt", 10, "duy tan"));
     }
 
-    @Override
-    public void createCandidate(int choice) {
+    public Candidate addCandidate(int choice) {
         System.out.println("enter candidate id: ");
         int id = Integer.parseInt(sc.nextLine());
         System.out.println("enter first name of candidate : ");
@@ -100,7 +99,7 @@ public class ManageCandidate implements FunctionsCandidate {
             String proSkill = sc.nextLine();
             Candidate experience = new ExperienceCandiDate(id, firstName, lastName, birthDay, address,
                     phone, email, type, expYears, proSkill);
-            candidateList.add(experience);
+            return experience;
         } else if (choice == 2) {
             System.out.println("enter graduated time : ");
             int graYear = Integer.parseInt(sc.nextLine());
@@ -118,7 +117,7 @@ public class ManageCandidate implements FunctionsCandidate {
             String education = sc.nextLine();
             Candidate fresherCandidate = new FresherCandidate(id, firstName, lastName, birthDay, address,
                     phone, email, type, graYear, graRank, education);
-            candidateList.add(fresherCandidate);
+            return fresherCandidate;
         } else if (choice == 3) {
             System.out.println("enter Majors : ");
             String major = sc.nextLine();
@@ -128,32 +127,51 @@ public class ManageCandidate implements FunctionsCandidate {
             String university = sc.nextLine();
             Candidate internCandidate = new InternCandidate(id, firstName, lastName, birthDay, address,
                     phone, email, type, major, semester, university);
-            candidateList.add(internCandidate);
+            return internCandidate;
         }
+        return null;
     }
 
     @Override
+    public void createCandidate(int choice) {
+        if (choice == 1) {
+            candidateList.add(addCandidate(1));
+        } else if (choice == 2) {
+            candidateList.add(addCandidate(2));
+        } else if (choice == 3) {
+            candidateList.add(addCandidate(3));
+        }
+    }
+
+
     public void updateCandidate(int id) {
+        int index = -1;
         for (Candidate candidate : candidateList) {
             if (candidate.getCandidateId() == id) {
+                index = candidateList.indexOf(candidate);
                 if (candidate instanceof ExperienceCandiDate) {
-                    createCandidate(1);
+                    candidateList.set(index, addCandidate(1));
                 } else if (candidate instanceof FresherCandidate) {
-                    createCandidate(2);
+                    candidateList.set(index, addCandidate(2));
                 } else if (candidate instanceof InternCandidate) {
-                    createCandidate(3);
+                    candidateList.set(index, addCandidate(3));
                 }
             }
+        }
+        if (index == -1) {
+            System.out.println("object is not found");
         }
     }
 
 
     @Override
     public void searchCandidate(String name, int type) {
-        for (Candidate candidate : candidateList) {
-            if (name.equals(candidate.getFirstName()) || name.equals(candidate.getLastName())
-                    && candidate.getCandidateType() == type) {
-                System.out.println(candidate);
+        for (Candidate e : candidateList) {
+            if (name.equals(e.getFirstName()) || name.equals(e.getLastName())
+                    && e.getCandidateType() == type) {
+                System.out.println(e.getFirstName() + " " + e.getLastName() + " | " + e.getBirthDate() +
+                        " | " + e.getAddress() + " | " + e.getPhone() + " | " + e.getEmail() + " | " + e.getCandidateType());
+                System.out.println("=========================");
             }
         }
     }
@@ -179,9 +197,10 @@ public class ManageCandidate implements FunctionsCandidate {
         }
     }
 
-    @Override
-    public String toString() {
-        return "ManageCandidate{}";
+    public void displayAll() {
+        for (Candidate candidate : candidateList) {
+            System.out.println(candidate);
+        }
     }
 }
 

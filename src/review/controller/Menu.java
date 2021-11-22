@@ -1,5 +1,6 @@
-package bai_tap_lam_them_arraylist_va_oop.controller;
-import bai_tap_lam_them_arraylist_va_oop.service.ManageCandidate;
+package review.controller;
+
+import review.service.ManageCandidate;
 
 import java.util.Scanner;
 
@@ -34,12 +35,33 @@ public class Menu {
             switch (choice) {
                 case 1:
                     manageCandidate.createCandidate(1);
+                    System.out.println(": Do you want to continue (Y/N)?. User chooses Y to continues, if you chooses N," +
+                            " the program returns main screen and display all candidates who are created");
+                    String choice1 = sc.nextLine();
+                    if (choice1.equals("n")) {
+                        manageCandidate.displayAll();
+                        displayMenu();
+                    }
                     break;
                 case 2:
                     manageCandidate.createCandidate(2);
+                    System.out.println(": Do you want to continue (Y/N)?. User chooses Y to continues, if you chooses N," +
+                            " the program returns main screen and display all candidates who are created");
+                    String choice2 = sc.nextLine();
+                    if (choice2.equals("n")) {
+                        manageCandidate.displayAll();
+                        displayMenu();
+                    }
                     break;
                 case 3:
                     manageCandidate.createCandidate(3);
+                    System.out.println(": Do you want to continue (Y/N)?. User chooses Y to continues, if you chooses N," +
+                            " the program returns main screen and display all candidates who are created");
+                    String choice3 = sc.nextLine();
+                    if (choice3.equals("n")) {
+                        manageCandidate.displayAll();
+                        displayMenu();
+                    }
                     break;
                 case 4:
                     System.out.println("please choose type candidate to update: \n" +
@@ -54,24 +76,17 @@ public class Menu {
                 case 5:
                     System.out.println("please enter id of candidate to delete: ");
                     id = Integer.parseInt(sc.nextLine());
-                    manageCandidate.deleteCandidate( id);
+                    manageCandidate.deleteCandidate(id);
                     break;
                 case 6:
-//                    System.out.println("LIST OF CANDIDATE : \n");
-//                    manageCandidate.displayExperienceCandidate();
-//                    System.out.println("=================================== \n");
-//                    manageCandidate.displayFresherCandidate();
-//                    System.out.println("=================================== \n");
-//                    manageCandidate.displayInternCandidate();
-//                    System.out.println("please choose type candidate to search: \n" +
-//                            "1 to search ExperienceCandiDate Candidate \n" +
-//                            "2 to search FresherCandidate Candidate \n" +
-//                            "3 to search Internship Candidate \n");
+                    System.out.println("LIST OF CANDIDATE : \n");
+                    manageCandidate.displayAll();
+                    System.out.println("=================================== \n");
                     System.out.println("please enter type of candidate");
                     int type = Integer.parseInt(sc.nextLine());
                     System.out.println("please enter name of candidate to search: ");
                     String name = sc.nextLine();
-                    manageCandidate.searchCandidate(name,type);
+                    manageCandidate.searchCandidate(name, type);
                     break;
                 case 7:
                     manageCandidate.displayCandidate();

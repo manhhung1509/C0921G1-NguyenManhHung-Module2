@@ -1,4 +1,4 @@
-package bai_tap_lam_them_arraylist_va_oop.model;
+package review.model;
 
 public class FresherCandidate extends Candidate {
     private int graduationDate;
