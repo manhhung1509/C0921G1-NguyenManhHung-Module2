@@ -1,4 +1,4 @@
-package bai_tap_lam_them_arraylist_va_oop.candidate;
+package bai_tap_lam_them_arraylist_va_oop.model;
 
 public class ExperienceCandiDate extends Candidate {
     private int expInYear;

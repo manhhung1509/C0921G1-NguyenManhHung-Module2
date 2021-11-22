@@ -1,4 +1,4 @@
-package bai_tap_lam_them_arraylist_va_oop.menu_candidate;
+package bai_tap_lam_them_arraylist_va_oop.controller;
 
 public class RunProgram {
     public static void main(String[] args) {

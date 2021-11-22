@@ -1,4 +1,4 @@
-package bai_tap_lam_them_arraylist_va_oop.candidate;
+package bai_tap_lam_them_arraylist_va_oop.model;
 
 public abstract class Candidate {
     protected int candidateId;
@@ -91,15 +91,15 @@ public abstract class Candidate {
 
     @Override
     public String toString() {
-        return "Candidate{" +
-                "candidateId=" + candidateId +
+        return "ExperienceCandiDate{" +
+                ", candidateId=" + candidateId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
                 ", address='" + address + '\'' +
                 ", phone=" + phone +
                 ", email='" + email + '\'' +
-                ", candidateType='" + candidateType + '\'' +
+                ", candidateType=" + candidateType +
                 '}';
     }
 }

@@ -1,5 +1,5 @@
-package bai_tap_lam_them_arraylist_va_oop.menu_candidate;
-import bai_tap_lam_them_arraylist_va_oop.candidate_management.ManageCandidate;
+package bai_tap_lam_them_arraylist_va_oop.controller;
+import bai_tap_lam_them_arraylist_va_oop.service.ManageCandidate;
 
 import java.util.Scanner;
 
@@ -49,33 +49,29 @@ public class Menu {
                     select = Integer.parseInt(sc.nextLine());
                     System.out.println("please enter id of candidate to update: ");
                     id = Integer.parseInt(sc.nextLine());
-                    manageCandidate.updateCandidate(select, id);
+                    manageCandidate.updateCandidate(id);
                     break;
                 case 5:
-                    System.out.println("please choose type candidate to delete: \n" +
-                            "1 to delete ExperienceCandiDate Candidate \n" +
-                            "2 to delete FresherCandidate Candidate \n" +
-                            "3 to delete Internship Candidate \n");
-                    select = Integer.parseInt(sc.nextLine());
                     System.out.println("please enter id of candidate to delete: ");
                     id = Integer.parseInt(sc.nextLine());
-                    manageCandidate.deleteCandidate(select, id);
+                    manageCandidate.deleteCandidate( id);
                     break;
                 case 6:
-                    System.out.println("LIST OF CANDIDATE : \n");
-                    manageCandidate.displayExperienceCandidate();
-                    System.out.println("=================================== \n");
-                    manageCandidate.displayFresherCandidate();
-                    System.out.println("=================================== \n");
-                    manageCandidate.displayInternCandidate();
-                    System.out.println("please choose type candidate to search: \n" +
-                            "1 to search ExperienceCandiDate Candidate \n" +
-                            "2 to search FresherCandidate Candidate \n" +
-                            "3 to search Internship Candidate \n");
-                    select = Integer.parseInt(sc.nextLine());
+//                    System.out.println("LIST OF CANDIDATE : \n");
+//                    manageCandidate.displayExperienceCandidate();
+//                    System.out.println("=================================== \n");
+//                    manageCandidate.displayFresherCandidate();
+//                    System.out.println("=================================== \n");
+//                    manageCandidate.displayInternCandidate();
+//                    System.out.println("please choose type candidate to search: \n" +
+//                            "1 to search ExperienceCandiDate Candidate \n" +
+//                            "2 to search FresherCandidate Candidate \n" +
+//                            "3 to search Internship Candidate \n");
+                    System.out.println("please enter type of candidate");
+                    int type = Integer.parseInt(sc.nextLine());
                     System.out.println("please enter name of candidate to search: ");
                     String name = sc.nextLine();
-                    manageCandidate.searchCandidate(select, name);
+                    manageCandidate.searchCandidate(name,type);
                     break;
                 case 7:
                     manageCandidate.displayCandidate();
