@@ -56,7 +56,7 @@ public class ManageCandidate implements CandidateService {
             count++;
         }
         while (count != 4 || birthDay > 2021 || birthDay < 1900) {
-            System.out.println("Please enter again");
+            System.err.println("Please enter again");
             count = 0;
             birthDay = Integer.parseInt(sc.nextLine());
             int tomp = birthDay;
@@ -76,7 +76,7 @@ public class ManageCandidate implements CandidateService {
             count1++;
         }
         while (count1 < 9) {
-            System.out.println("Please enter again");
+            System.err.println("Please enter again");
             count1 = 0;
             phone = Long.parseLong(sc.nextLine());
             long tomp = phone;
@@ -97,7 +97,7 @@ public class ManageCandidate implements CandidateService {
             System.out.println("enter ExperienceCandiDate years :");
             int expYears = Integer.parseInt(sc.nextLine());
             while (expYears < 0 || expYears > 100) {
-                System.out.println("please choose again");
+                System.err.println("please choose again");
                 expYears = Integer.parseInt(sc.nextLine());
             }
             System.out.println("enter Professional Skill ");
@@ -114,7 +114,7 @@ public class ManageCandidate implements CandidateService {
                 if (graRank.equals("Excellence") || graRank.equals("Good") || graRank.equals("Fair") || graRank.equals("Poor")) {
                     break;
                 } else {
-                    System.out.println("Enter again :");
+                    System.err.println("Enter again :");
                     graRank = sc.nextLine();
                 }
             }

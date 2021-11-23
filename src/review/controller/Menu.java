@@ -91,7 +91,7 @@ public class Menu {
                 case 9:
                     System.exit(0);
                 default:
-                    System.out.println("please enter again ");
+                    System.err.println("please enter again ");
                     System.out.println("================================");
             }
         } while (true);
