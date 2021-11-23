@@ -1,0 +1,9 @@
+ExperienceCandiDate{expInYear=1, proSkill='java', candidateId=1, firstName='manh hung', lastName='nguyen', birthDate=2000, address='le thi tinh', phone=1395373138, email='hung@gmail.com', candidateType=0}
+ExperienceCandiDate{expInYear=2, proSkill='c#', candidateId=2, firstName='viet hoang', lastName='le ', birthDate=2001, address='le thi toan', phone=174469785, email='hoang@gmail.com', candidateType=0}
+ExperienceCandiDate{expInYear=5, proSkill='c3', candidateId=7, firstName='hung', lastName='nguyen', birthDate=2001, address='sdf', phone=1231241231, email='fsgsd', candidateType=3}
+FresherCandidate{graduationDate=2, graduationRank='fair', education='DTU', candidateId=4, firstName='thanh', lastName='nguyen', birthDate=1989, address='le thi tu', phone=1231431231, email='hung@gmail.com', candidateType=1}
+FresherCandidate{graduationDate=3, graduationRank='excilent', education='science', candidateId=5, firstName='thang', lastName='le', birthDate=1999, address='le thi rieng', phone=1231431231, email='hung@gmail.com', candidateType=1}
+FresherCandidate{graduationDate=4, graduationRank='good', education='military academy', candidateId=6, firstName='tuan', lastName='nguyen', birthDate=2001, address='le thi ba', phone=1231431231, email='hung@gmail.com', candidateType=1}
+InternCandidate{majors='information', semester=8, universityName='havert', candidateId=7, firstName='hung', lastName='nguyen', birthDate=2000, address='le thi tinh', phone=1231431231, email='hung@gmail.com', candidateType=2}
+InternCandidate{majors='ìnorr', semester=9, universityName='hanoiu', candidateId=8, firstName='hoang', lastName='nguyen', birthDate=2000, address='le thi tinh', phone=1231431231, email='hung@gmail.com', candidateType=2}
+InternCandidate{majors='ìnnformationt', semester=10, universityName='duy tan', candidateId=9, firstName='nha', lastName='nguyen', birthDate=2000, address='le thi tinh', phone=1231431231, email='hung@gmail.com', candidateType=2}

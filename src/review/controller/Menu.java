@@ -21,15 +21,9 @@ public class Menu {
                     + "5. Delete \n"
                     + "6. Searching\n"
                     + "7. Display\n"
-                    + "8. Exit");
-            System.out.println("Please choose 1 to Create ExperienceCandiDate Candidate \n" +
-                    "2 to Create FresherCandidate Candidate \n" +
-                    "3 to Create Internship Candidate \n" +
-                    "4 to Update Candidate \n" +
-                    "5 to Delete Candidate \n" +
-                    "6 to Searching \n" +
-                    "7 to display \n" +
-                    "8 to Exit program \n");
+                    + "8. write file \n"
+                    + "9. Exit \n");
+            System.out.println("=============================");
             choice = Integer.parseInt(sc.nextLine());
 
             switch (choice) {
@@ -92,6 +86,9 @@ public class Menu {
                     manageCandidate.displayCandidate();
                     break;
                 case 8:
+                    manageCandidate.writeCandidateFile();
+                    break;
+                case 9:
                     System.exit(0);
                 default:
                     System.out.println("please enter again ");

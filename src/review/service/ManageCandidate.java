@@ -5,12 +5,17 @@ import review.model.ExperienceCandiDate;
 import review.model.FresherCandidate;
 import review.model.InternCandidate;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ManageCandidate implements CandidateService {
     Scanner sc = new Scanner(System.in);
+    public static final String PATH_TARGET_FILE = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\review\\candidate_file.txt";
     static List<Candidate> candidateList = new ArrayList<>();
     int count = 0;
     int count1 = 0;
@@ -50,7 +55,7 @@ public class ManageCandidate implements CandidateService {
             temp /= 10;
             count++;
         }
-        while (count != 4 || birthDay > 2021 || birthDay < 1990) {
+        while (count != 4 || birthDay > 2021 || birthDay < 1900) {
             System.out.println("Please enter again");
             count = 0;
             birthDay = Integer.parseInt(sc.nextLine());
@@ -200,6 +205,22 @@ public class ManageCandidate implements CandidateService {
     public void displayAll() {
         for (Candidate candidate : candidateList) {
             System.out.println(candidate);
+        }
+    }
+
+    public void writeCandidateFile() {
+        File file = new File(PATH_TARGET_FILE);
+        try {
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (Candidate candidate : candidateList) {
+                bw.write(candidate.toString());
+                bw.newLine();
+            }
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
