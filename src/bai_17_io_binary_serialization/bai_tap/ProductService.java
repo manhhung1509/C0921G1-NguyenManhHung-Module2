@@ -28,14 +28,12 @@ public class ProductService {
     }
 
     public void displayProduct() {
-        productList = readWriteFile.readFile();
         for (Product product : productList) {
             System.out.println(product);
         }
     }
 
     public void searchProduct() {
-        productList = readWriteFile.readFile();
         System.out.println("enter id of product to search ");
         int id = Integer.parseInt(scanner.nextLine());
         for (Product product : productList) {
