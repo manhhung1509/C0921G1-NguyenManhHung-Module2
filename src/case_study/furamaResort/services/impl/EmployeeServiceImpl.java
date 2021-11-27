@@ -2,12 +2,12 @@ package case_study.furamaResort.services.impl;
 
 import case_study.furamaResort.models.people.Employee;
 import case_study.furamaResort.services.EmployeeService;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
+
     Scanner sc = new Scanner(System.in);
     String[] levels = {"Trung cấp", "Cao đẳng", "Đại học", "sau đại học"};
     String[] positions = {"Lễ tân", "phục vụ", "chuyên viên", "giám sát", "quản lý", "giám đốc"};
@@ -26,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void addNew() {
         System.out.println("enter employee code: ");
         String code = sc.nextLine();
-        System.out.println("enter first name of employee : ");
+        System.out.println("enter  name of employee : ");
         String name = sc.nextLine();
         System.out.println("enter birthday of employee : ");
         String birthDay = sc.nextLine();

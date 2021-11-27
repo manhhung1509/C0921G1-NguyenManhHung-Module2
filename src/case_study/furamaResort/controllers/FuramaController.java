@@ -1,11 +1,13 @@
 package case_study.furamaResort.controllers;
 
+import case_study.furamaResort.services.impl.CustomerServiceImpl;
 import case_study.furamaResort.services.impl.EmployeeServiceImpl;
 
 import java.util.Scanner;
 
 public class FuramaController {
     EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+    CustomerServiceImpl customerService = new CustomerServiceImpl();
 
     public void displayMainMenu() {
         int choice;
@@ -50,6 +52,21 @@ public class FuramaController {
                     System.out.println("3. Edit customer");
                     System.out.println("4. Return Student8 menu");
                     System.out.println("============================ \n");
+                    choose = Integer.parseInt(input.nextLine());
+                    switch (choose) {
+                        case 1:
+                            customerService.displayCustomer();
+                            break;
+                        case 2:
+                            customerService.addNew();
+                            break;
+                        case 3:
+                            customerService.editCustomer();
+                            break;
+                        case 4:
+                            displayMainMenu();
+                            break;
+                    }
                     break;
                 case 3:
                     System.out.println("1. Display list facility");
