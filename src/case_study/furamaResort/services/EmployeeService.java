@@ -1,6 +1,7 @@
 package case_study.furamaResort.services;
 
-public interface EmployeeService extends Service{
-    void paySalary();
-    void tetBonus();
+public interface EmployeeService extends Service {
+    void displayListEmployees();
+
+    void editEmployee();
 }
