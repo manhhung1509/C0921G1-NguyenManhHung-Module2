@@ -1,5 +1,7 @@
 package case_study.furamaResort.models.facility;
 
+import java.util.Objects;
+
 public class Room extends Facility {
     private String freeServiceIncluded;
 
@@ -34,5 +36,23 @@ public class Room extends Facility {
                 ", maximumPeople=" + maximumPeople +
                 ", rentalType='" + rentalType + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Room)) return false;
+        Room room = (Room) o;
+        return Double.compare(room.usableArea, usableArea) == 0 &&
+                rentCost == room.rentCost &&
+                maximumPeople == room.maximumPeople &&
+                Objects.equals(nameService, room.nameService) &&
+                Objects.equals(rentalType, room.rentalType) &&
+                Objects.equals(freeServiceIncluded, room.freeServiceIncluded);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameService, usableArea, rentCost, maximumPeople, rentalType, freeServiceIncluded);
     }
 }

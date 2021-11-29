@@ -1,5 +1,7 @@
 package case_study.furamaResort.models.facility;
 
+import java.util.Objects;
+
 public class Villa extends Facility {
     private String standardOfRoom;
     private double poolArea;
@@ -58,5 +60,25 @@ public class Villa extends Facility {
                 ", maximumPeople=" + maximumPeople +
                 ", rentalType='" + rentalType + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Villa)) return false;
+        Villa villa = (Villa) o;
+        return Double.compare(villa.usableArea, usableArea) == 0 &&
+                rentCost == villa.rentCost &&
+                maximumPeople == villa.maximumPeople &&
+                Double.compare(villa.poolArea, poolArea) == 0 &&
+                NumberOfFloors == villa.NumberOfFloors &&
+                Objects.equals(nameService, villa.nameService) &&
+                Objects.equals(rentalType, villa.rentalType) &&
+                Objects.equals(standardOfRoom, villa.standardOfRoom);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameService, usableArea, rentCost, maximumPeople, rentalType, standardOfRoom, poolArea, NumberOfFloors);
     }
 }

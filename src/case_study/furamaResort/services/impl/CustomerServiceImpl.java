@@ -13,12 +13,12 @@ public class CustomerServiceImpl implements CustomerService {
     static List<Customer> customerList = new LinkedList<>();
 
     static {
-        customerList.add(new Customer("CP01", "Nguyễn Hoài Anh", "30/5/1899", "nữ", "37264233812",
-                "0968123843", "nguyenhoaianh2422@gmail.com", "gold", "107 lý thường kiệt"));
-        customerList.add(new Customer("CP02", "Lê Anh Hào ", "02/01/1977", "nam", "23847832462374623",
+        customerList.add(new Customer("CP01", "Song Joog Ki", "30/5/1899", "nam", "37264233812",
+                "0968123843", "songjoogKi123@gmail.com", "gold", "Korea"));
+        customerList.add(new Customer("CP02", "Lee Jong-Suk ", "02/01/1977", "nam", "23847832462374623",
                 "0905000123", "leanhhao1@gmail.com", "silver", "23 Hoàng Hoa Thám"));
-        customerList.add(new Customer("CP03", "Nguyễn Bá Tùng", "10/09/1990", "nam", "8767263232323",
-                "0981232787", "tungceko000@gmail.com", "member", "233 Điện Biên Phủ"));
+        customerList.add(new Customer("CP03", "Bae Suzy", "10/09/1997", "nữ", "8767263232323",
+                "0981232787", "skuukzky@gmail.com", "Diamond", "233 Điện Biên Phủ"));
     }
 
 

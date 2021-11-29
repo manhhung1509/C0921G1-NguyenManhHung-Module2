@@ -13,8 +13,8 @@ public class Main {
         students.add(new Student(3, "Đặng Huy Hoà", "Đà Nẵng"));
         students.add(new Student(4, "Nguyễn Khánh Tùng", "Hà Nội"));
         students.add(new Student(5, "Nguyễn Khắc Nhật", "Hà Nội"));
-        writeToFile("C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\bai_17_io_binary_serialization\\thuc_hanh\\doc_va_ghi_danh_sach_sinh_vien\\student.txt", students);
-        List<Student> studentDataFromFile = readDataFromFile("C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\bai_17_io_binary_serialization\\thuc_hanh\\doc_va_ghi_danh_sach_sinh_vien\\student.txt");
+        writeToFile("C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\bai_17_io_binary_serialization\\thuc_hanh\\doc_va_ghi_danh_sach_sinh_vien\\student.dat", students);
+        List<Student> studentDataFromFile = readDataFromFile("C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\bai_17_io_binary_serialization\\thuc_hanh\\doc_va_ghi_danh_sach_sinh_vien\\student.dat");
         for (Student student : studentDataFromFile){
             System.out.println(student);
         }

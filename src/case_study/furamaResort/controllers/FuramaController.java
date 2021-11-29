@@ -2,12 +2,13 @@ package case_study.furamaResort.controllers;
 
 import case_study.furamaResort.services.impl.CustomerServiceImpl;
 import case_study.furamaResort.services.impl.EmployeeServiceImpl;
-
+import case_study.furamaResort.services.impl.FacilityServiceImpl;
 import java.util.Scanner;
 
 public class FuramaController {
     EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
+    FacilityServiceImpl facilityService = new FacilityServiceImpl();
 
     public void displayMainMenu() {
         int choice;
@@ -74,6 +75,21 @@ public class FuramaController {
                     System.out.println("3.Display list facility maintenance");
                     System.out.println("4. Return Student8 menu");
                     System.out.println("============================ \n");
+                    choose = Integer.parseInt(input.nextLine());
+                    switch (choose) {
+                        case 1:
+                            facilityService.displayListFacility();
+                            break;
+                        case 2:
+                            facilityService.addNew();
+                            break;
+                        case 3:
+                            facilityService.displayListFacilityMaintenance();
+                            break;
+                        case 4:
+                            displayMainMenu();
+                            break;
+                    }
                     break;
                 case 4:
                     System.out.println("1. Add new booking");
@@ -97,10 +113,5 @@ public class FuramaController {
                     System.err.println("============================");
             }
         } while (true);
-    }
-
-    public static void main(String[] args) {
-        FuramaController furamaController =new FuramaController();
-        furamaController.displayMainMenu();
     }
 }
