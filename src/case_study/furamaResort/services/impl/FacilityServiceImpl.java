@@ -6,6 +6,7 @@ import case_study.furamaResort.models.facility.House;
 import case_study.furamaResort.models.facility.Room;
 import case_study.furamaResort.models.facility.Villa;
 import case_study.furamaResort.services.FacilityService;
+import case_study.furamaResort.services.validate.ValidateFacility;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Set;
 
 public class FacilityServiceImpl implements FacilityService {
     Scanner scanner = new Scanner(System.in);
+    ValidateFacility validate = new ValidateFacility();
     String[] rentalTypes = {"year", "month", "day", "hour"};
     static Map<Facility, Integer> serviceList = new LinkedHashMap<>();
     Set<Facility> keySet = serviceList.keySet();
@@ -59,55 +61,28 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     public Facility addFacility(int choice) {
-        String name;
-        do {
-            System.out.println("Enter name of service: ");
-            name = (scanner.nextLine()).toLowerCase();
-            if (!("villa".equals(name) || "house".equals(name) || "room".equals(name))) {
-                System.err.println("name of this service is not available. please enter again:");
-            } else {
-                break;
-            }
-        } while (true);
-        System.out.println("Enter usable area: ");
-        double usableArea = Double.parseDouble(scanner.nextLine());
-        System.out.println("Enter rent cost: ");
-        int cost = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter maximum people: ");
-        int maximumPeople = Integer.parseInt(scanner.nextLine());
-        int select;
-        do {
-            System.out.println("Enter rental Type: \n" +
-                    "enter 1 to choice rent for year \n" +
-                    "enter 2 to choice rent for month \n" +
-                    "enter 3 to choice rent for day \n" +
-                    "enter 4 to choice rent for hour \n");
-            select = Integer.parseInt(scanner.nextLine());
-        } while (select < 1 || select > 4);
-        String type = rentalType(select);
+        String nameService = validate.serviceName();
+        double usableArea = validate.usableArea();
+        int rentCost = validate.rentCost();
+        int maximumPeople = validate.maximumPeople();
+        String rentalType = validate.rentalType();
         if (choice == 1) {
-            System.out.println("Enter standard of room: ");
-            String standard = scanner.nextLine();
-            System.out.println("Enter pool area: ");
-            Double poolArea = Double.parseDouble(scanner.nextLine());
-            System.out.println("Enter number of floors: ");
-            int floors = Integer.parseInt(scanner.nextLine());
-            Facility villa = new Villa(name, usableArea, cost, maximumPeople, type, standard, poolArea, floors);
+            String standard = validate.standardOfRoom();
+            Double poolArea = validate.poolArea();
+            int floors = validate.numberOfFloors();
+            Facility villa = new Villa(nameService, usableArea, rentCost, maximumPeople, rentalType, standard, poolArea, floors);
             return villa;
         } else if (choice == 2) {
-            System.out.println("Enter standard of room:");
-            String standard = scanner.nextLine();
-            System.out.println("Enter number of floors: ");
-            int floors = Integer.parseInt(scanner.nextLine());
-            Facility house = new House(name, usableArea, cost, maximumPeople, type, standard, floors);
+            String standard = validate.standardOfRoom();
+            int floors = validate.numberOfFloors();
+            Facility house = new House(nameService, usableArea, rentCost, maximumPeople, rentalType, standard, floors);
             return house;
-        } else if (choice == 3) {
-            System.out.println("enter free Service included: ");
-            String freeService = scanner.nextLine();
-            Facility room = new Room(name, usableArea, cost, maximumPeople, type, freeService);
+        } else {
+            System.out.println("enter free service include: ");
+            String freeServiceInclude = scanner.nextLine();
+            Facility room = new Room(nameService, usableArea, rentCost, maximumPeople, rentalType, freeServiceInclude);
             return room;
         }
-        return null;
     }
 
     @Override
