@@ -60,7 +60,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "ExampleIsIncorrect{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
