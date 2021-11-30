@@ -116,23 +116,4 @@ public class FacilityServiceImpl implements FacilityService {
             System.out.println(key + " " + serviceList.get(key));
         }
     }
-
-    public String rentalType(int choice) {
-        String rentalType = "";
-        switch (choice) {
-            case 1:
-                rentalType = rentalTypes[0];
-                break;
-            case 2:
-                rentalType = rentalTypes[1];
-                break;
-            case 3:
-                rentalType = rentalTypes[2];
-                break;
-            case 4:
-                rentalType = rentalTypes[3];
-                break;
-        }
-        return rentalType;
-    }
 }
