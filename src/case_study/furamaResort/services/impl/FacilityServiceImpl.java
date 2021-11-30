@@ -16,7 +16,6 @@ import java.util.Set;
 public class FacilityServiceImpl implements FacilityService {
     Scanner scanner = new Scanner(System.in);
     ValidateFacility validate = new ValidateFacility();
-    String[] rentalTypes = {"year", "month", "day", "hour"};
     static Map<Facility, Integer> serviceList = new LinkedHashMap<>();
     Set<Facility> keySet = serviceList.keySet();
 

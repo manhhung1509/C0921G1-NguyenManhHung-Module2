@@ -243,18 +243,4 @@ public class ValidateFacility {
         }
         return birthday;
     }
-
-//    public static void main(String[] args) {
-//        ValidateFacility g = new ValidateFacility();
-//        System.out.println(g.serviceCode());
-//        System.out.println(g.serviceName());
-//        System.out.println(g.usableArea());
-//        System.out.println(g.poolArea());
-//        System.out.println(g.rentalType());
-//        System.out.println(g.rentCost());
-//        System.out.println(g.maximumPeople());
-//        System.out.println(g.standardOfRoom());
-//        System.out.println(g.numberOfFloors());
-//        System.out.println(g.birthDay());
-//    }
 }
