@@ -1,6 +1,7 @@
 package case_study.furamaResort.services.validate;
 
 import case_study.furamaResort.services.exception.*;
+import jdk.nashorn.internal.runtime.ECMAException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,15 +18,19 @@ public class ValidateFacility {
         String matched = "^(SV)(VL|HO|RO)\\-(\\d{4})$";
         String code = "";
         do {
-            System.out.println("enter service code:");
-            code = sc.nextLine();
-            if (!code.matches(matched)) {
+            try {
+                System.out.println("enter service code:");
+                code = sc.nextLine();
+                if (!code.matches(matched)) {
+                    throw new Exception();
+                } else {
+                    break;
+                }
+            } catch (Exception e) {
                 System.err.println("-code of service must be format: SVXX-YYYY, with YYYY is numbers from 0-9, XX is:\n" +
                         "-if it's Villa : XX is VL\n" +
                         "-if it's House : XX is HO\n" +
                         "-if it's Room : XX is RO\n");
-            } else {
-                break;
             }
         } while (true);
         return code;
@@ -35,15 +40,19 @@ public class ValidateFacility {
         String matched = "^[A-Z]\\w+$";
         String name = "";
         do {
-            System.out.println("enter name of service:");
-            name = sc.nextLine();
-            if (!name.matches(matched)) {
+            try {
+                System.out.println("enter name of service:");
+                name = sc.nextLine();
+                if (!name.matches(matched)) {
+                    throw new Exception();
+                } else {
+                    break;
+                }
+            } catch (Exception e) {
                 System.err.println("Name of service must be capitalize first letter,\n" +
                         " the following characters are normal characters \n" +
                         "service name contains only 1 word(Villa or House or Room \n" +
                         "enter again: ");
-            } else {
-                break;
             }
         } while (true);
         return name;
@@ -52,7 +61,7 @@ public class ValidateFacility {
     public double usableArea() {
         String matched = "^(\\-?)(\\d+)$";
         String input = "";
-        Double area = 0.0;
+        double area = 0.0;
         do {
             try {
                 System.out.println("enter usable area");
@@ -63,7 +72,7 @@ public class ValidateFacility {
                     area = Double.parseDouble(input);
                     if (area > 30) {
                         break;
-                    }else {
+                    } else {
                         System.err.println("area must be big more than 30");
                     }
                 }
@@ -77,7 +86,7 @@ public class ValidateFacility {
     public double poolArea() {
         String matched = "^(\\-?)(\\d+)$";
         String input = "";
-        Double area = 0.0;
+        double area = 0.0;
         do {
             try {
                 System.out.println("enter pool area");
@@ -88,7 +97,7 @@ public class ValidateFacility {
                     area = Double.parseDouble(input);
                     if (area > 30) {
                         break;
-                    }else {
+                    } else {
                         System.err.println("area must be big more than 30");
                     }
                 }
@@ -113,7 +122,7 @@ public class ValidateFacility {
                     renCost = Integer.parseInt(input);
                     if (renCost <= 0) {
                         System.err.println("area must be big more than 0");
-                    }else {
+                    } else {
                         break;
                     }
                 }
@@ -136,9 +145,9 @@ public class ValidateFacility {
                     throw new IllegalMaximumNumberException();
                 } else {
                     maximumNumber = Integer.parseInt(input);
-                    if (maximumNumber < 0 || maximumNumber >20) {
+                    if (maximumNumber < 0 || maximumNumber > 20) {
                         System.err.println("number of people must be big more than 0 and small than 20");
-                    }else {
+                    } else {
                         break;
                     }
                 }
@@ -163,7 +172,7 @@ public class ValidateFacility {
                     floor = Integer.parseInt(input);
                     if (floor > 0) {
                         break;
-                    }else {
+                    } else {
                         System.err.println("number of floor must be big more than 0");
                     }
                 }
@@ -178,13 +187,17 @@ public class ValidateFacility {
         String matched = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";
         String type = "";
         do {
-            System.out.println("enter rent type:");
-            type = sc.nextLine();
-            if (!type.matches(matched)) {
+            try {
+                System.out.println("enter rent type:");
+                type = sc.nextLine();
+                if (!type.matches(matched)) {
+                    throw new Exception();
+                } else {
+                    break;
+                }
+            } catch (Exception e) {
                 System.err.println("rent type must be capitalize first letter,\n" +
                         " the following characters are normal characters \n");
-            } else {
-                break;
             }
         } while (true);
         return type;
@@ -194,13 +207,17 @@ public class ValidateFacility {
         String matched = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";
         String standard = "";
         do {
-            System.out.println("standard of room:");
-            standard = sc.nextLine();
-            if (!standard.matches(matched)) {
+            try {
+                System.out.println("standard of room:");
+                standard = sc.nextLine();
+                if (!standard.matches(matched)) {
+                    throw new Exception();
+                } else {
+                    break;
+                }
+            } catch (Exception e) {
                 System.err.println("standard of room must be capitalize first letter,\n" +
-                        " the following characters are normal characters \n" );
-            } else {
-                break;
+                        " the following characters are normal characters \n");
             }
         } while (true);
         return standard;

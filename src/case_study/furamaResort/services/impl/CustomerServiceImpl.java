@@ -1,24 +1,21 @@
 package case_study.furamaResort.services.impl;
 
+import case_study.furamaResort.libs.WriteReadFile;
 import case_study.furamaResort.models.people.Customer;
 import case_study.furamaResort.services.CustomerService;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CustomerServiceImpl implements CustomerService {
-
+public class  CustomerServiceImpl implements CustomerService {
     Scanner sc = new Scanner(System.in);
     String[] customerTypes = {"Diamond", "Platinum", "Gold", "Silver", "Member"};
-    static List<Customer> customerList = new LinkedList<>();
+    final String path = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\customer.csv";
+    static List<Customer> customerList;
 
-    static {
-        customerList.add(new Customer("CP01", "Song Joog Ki", "30/5/1899", "nam", "37264233812",
-                "0968123843", "songjoogKi123@gmail.com", "gold", "Korea"));
-        customerList.add(new Customer("CP02", "Lee Jong-Suk ", "02/01/1977", "nam", "23847832462374623",
-                "0905000123", "leanhhao1@gmail.com", "silver", "23 Hoàng Hoa Thám"));
-        customerList.add(new Customer("CP03", "Bae Suzy", "10/09/1997", "nữ", "8767263232323",
-                "0981232787", "skuukzky@gmail.com", "Diamond", "233 Điện Biên Phủ"));
+    {
+        customerList = covertStringToCustomer();
     }
 
 
@@ -57,6 +54,7 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("enter address of customer");
         String address = sc.nextLine();
         customerList.add(new Customer(code, name, birthDay, gender, identify, phone, email, typeOfCustomer, address));
+        WriteReadFile.writeFile(path, covertCustomerToString(), false);
     }
 
     @Override
@@ -136,6 +134,7 @@ public class CustomerServiceImpl implements CustomerService {
         if (check == false) {
             System.err.println("customer is not found");
         }
+        WriteReadFile.writeFile(path, covertCustomerToString(), false);
     }
 
     @Override
@@ -143,6 +142,24 @@ public class CustomerServiceImpl implements CustomerService {
         for (Customer customer : customerList) {
             System.out.println(customer);
         }
+    }
+    public List<String> covertCustomerToString() {
+        List<String> listString = new LinkedList<>();
+        for (Customer customer : customerList) {
+            listString.add(customer.toString());
+        }
+        return listString;
+    }
+
+    public List<Customer> covertStringToCustomer() {
+        List<String> stringList = WriteReadFile.readFile(path);
+        List<Customer> customerList = new ArrayList<>();
+        String[] arrCustomer;
+        for (String line : stringList) {
+            arrCustomer = line.split(",");
+            customerList.add(new Customer(arrCustomer[0],arrCustomer[1], arrCustomer[2], arrCustomer[3],arrCustomer[4],arrCustomer[5], arrCustomer[6], arrCustomer[7],arrCustomer[8]));
+        }
+        return customerList;
     }
 
     public String getTypeOfCustomer(int choice) {

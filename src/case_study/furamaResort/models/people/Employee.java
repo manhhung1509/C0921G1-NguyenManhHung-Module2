@@ -1,9 +1,9 @@
 package case_study.furamaResort.models.people;
 
 public class Employee extends Person {
-   private String level;
-   private String position;
-   private int salary;
+    private String level;
+    private String position;
+    private int salary;
 
     public Employee() {
     }
@@ -48,17 +48,7 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "level='" + level + '\'' +
-                ", position='" + position + '\'' +
-                ", salary=" + salary +
-                ", code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", birthDay='" + birthDay + '\'' +
-                ", gender='" + gender + '\'' +
-                ", id=" + id +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
-                '}';
+        return code + "," + name + "," + birthDay + "," + gender + "," + id + "," + phoneNumber + "," + email + "," + level + "," + position + "," + salary;
+
     }
 }

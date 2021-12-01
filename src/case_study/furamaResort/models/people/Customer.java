@@ -3,6 +3,7 @@ package case_study.furamaResort.models.people;
 public class Customer extends Person {
     private String typeCustomer;
     private String address;
+
     public Customer() {
     }
 
@@ -36,16 +37,6 @@ public class Customer extends Person {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "typeCustomer='" + typeCustomer + '\'' +
-                ", address='" + address + '\'' +
-                ", code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", birthDay='" + birthDay + '\'' +
-                ", gender='" + gender + '\'' +
-                ", id=" + id +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
-                '}';
+        return code + "," + name + "," + birthDay + "," + gender + "," + id + "," + phoneNumber + "," + email + "," + typeCustomer + "," + address;
     }
 }

@@ -1,7 +1,10 @@
 package case_study.furamaResort.services.impl;
 
+import case_study.furamaResort.libs.WriteReadFile;
 import case_study.furamaResort.models.people.Employee;
 import case_study.furamaResort.services.EmployeeService;
+import on_tap.manage_student.common.FileUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,15 +14,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     Scanner sc = new Scanner(System.in);
     String[] levels = {"Trung cấp", "Cao đẳng", "Đại học", "sau đại học"};
     String[] positions = {"Lễ tân", "phục vụ", "chuyên viên", "giám sát", "quản lý", "giám đốc"};
-    static List<Employee> employeeList = new ArrayList<>();
+    final String path = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\employee.csv";
+    static List<Employee> employeeList;
 
-    static {
-        employeeList.add(new Employee("EP01", "Nguyễn Mạnh Hùng", "20/1/2000", "nam", "0312123812314",
-                "0904123567", "hungmanh@gmail.com", "đại học", "giám đốc", 50000000));
-        employeeList.add(new Employee("EP02", "Trần Hoàng Hải ", "25/11/2001", "nam", "34324232342223",
-                "09871232471", "hoanghai123@gmail.com", ": Trung cấp", "chuyên viên", 15000000));
-        employeeList.add(new Employee("EP03", "Dương Tú Anh", "09/6/1996", "nữ", "234244234351233",
-                "091233487632", "tuanh232@gmail.com", "sau đại học", "giám sát", 30000000));
+     {
+        employeeList = covertStringToEmployee();
     }
 
     @Override
@@ -72,6 +71,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("enter salary of employee : ");
         int salary = Integer.parseInt(sc.nextLine());
         employeeList.add(new Employee(code, name, birthDay, gender, identify, phone, email, level, position, salary));
+        FileUtils.writeFile(path, covertEmployeeToString(), false);
     }
 
     @Override
@@ -162,6 +162,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (check == false) {
             System.err.println("employee is not found");
         }
+        FileUtils.writeFile(path, covertEmployeeToString(), false);
     }
 
     @Override
@@ -169,6 +170,24 @@ public class EmployeeServiceImpl implements EmployeeService {
         for (Employee employee : employeeList) {
             System.out.println(employee);
         }
+    }
+    public List<String> covertEmployeeToString() {
+        List<String> listString = new ArrayList<>();
+        for (Employee employee : employeeList) {
+            listString.add(employee.toString());
+        }
+        return listString;
+    }
+
+    public List<Employee> covertStringToEmployee() {
+        List<String> stringList = WriteReadFile.readFile(path);
+        List<Employee> employeeList = new ArrayList<>();
+        String[] arrEmployee;
+        for (String line : stringList) {
+            arrEmployee = line.split(",");
+            employeeList.add(new Employee(arrEmployee[0],arrEmployee[1], arrEmployee[2], arrEmployee[3],arrEmployee[4],arrEmployee[5], arrEmployee[6], arrEmployee[7],arrEmployee[8],Integer.parseInt(arrEmployee[9])));
+        }
+        return employeeList;
     }
 
     public String getLevel(int choice) {
