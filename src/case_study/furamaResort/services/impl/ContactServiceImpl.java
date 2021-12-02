@@ -88,6 +88,7 @@ public class ContactServiceImpl implements ContactService {
                 System.out.println("=========================");
             }
         }
+        WriteReadFile.writeFile(PATH_CONTRACt, covertContractToString(), false);
     }
 
     @Override
