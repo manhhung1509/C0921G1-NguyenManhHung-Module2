@@ -58,19 +58,12 @@ public class Villa extends Facility {
         if (this == o) return true;
         if (!(o instanceof Villa)) return false;
         Villa villa = (Villa) o;
-        return Double.compare(villa.usableArea, usableArea) == 0 &&
-                rentCost == villa.rentCost &&
-                maximumPeople == villa.maximumPeople &&
-                Double.compare(villa.poolArea, poolArea) == 0 &&
-                NumberOfFloors == villa.NumberOfFloors &&
-                Objects.equals(serviceCode, villa.serviceCode) &&
-                Objects.equals(nameService, villa.nameService) &&
-                Objects.equals(rentalType, villa.rentalType) &&
-                Objects.equals(standardOfRoom, villa.standardOfRoom);
+        return Objects.equals(serviceCode, villa.serviceCode) &&
+                Objects.equals(nameService, villa.nameService);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, standardOfRoom, poolArea, NumberOfFloors);
+        return Objects.hash(serviceCode, nameService);
     }
 }

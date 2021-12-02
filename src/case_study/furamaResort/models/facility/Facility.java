@@ -11,7 +11,8 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(String serviceCode, String nameService, double usableArea, int rentCost, int maximumPeople, String rentalType) {
+    public Facility(String serviceCode, String nameService, double usableArea, int rentCost, int maximumPeople,
+                    String rentalType) {
         this.serviceCode = serviceCode;
         this.nameService = nameService;
         this.usableArea = usableArea;

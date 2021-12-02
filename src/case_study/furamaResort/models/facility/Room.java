@@ -36,17 +36,12 @@ public class Room extends Facility {
         if (this == o) return true;
         if (!(o instanceof Room)) return false;
         Room room = (Room) o;
-        return Double.compare(room.usableArea, usableArea) == 0 &&
-                rentCost == room.rentCost &&
-                maximumPeople == room.maximumPeople &&
-                Objects.equals(serviceCode, room.serviceCode) &&
-                Objects.equals(nameService, room.nameService) &&
-                Objects.equals(rentalType, room.rentalType) &&
-                Objects.equals(freeServiceIncluded, room.freeServiceIncluded);
+        return Objects.equals(serviceCode, room.serviceCode) &&
+                Objects.equals(nameService, room.nameService) ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, freeServiceIncluded);
+        return Objects.hash(serviceCode, nameService);
     }
 }

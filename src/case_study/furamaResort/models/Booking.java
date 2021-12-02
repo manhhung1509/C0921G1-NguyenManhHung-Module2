@@ -1,7 +1,4 @@
 package case_study.furamaResort.models;
-
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Date;
 import java.util.Objects;
 

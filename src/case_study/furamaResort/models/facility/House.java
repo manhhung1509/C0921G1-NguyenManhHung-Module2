@@ -48,18 +48,12 @@ public class House extends Facility {
         if (this == o) return true;
         if (!(o instanceof House)) return false;
         House house = (House) o;
-        return Double.compare(house.usableArea, usableArea) == 0 &&
-                rentCost == house.rentCost &&
-                maximumPeople == house.maximumPeople &&
-                NumberOfFloors == house.NumberOfFloors &&
-                Objects.equals(serviceCode, house.serviceCode) &&
-                Objects.equals(nameService, house.nameService) &&
-                Objects.equals(rentalType, house.rentalType) &&
-                Objects.equals(standardOfRoom, house.standardOfRoom);
+        return Objects.equals(serviceCode, house.serviceCode) &&
+                Objects.equals(nameService, house.nameService) ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, standardOfRoom, NumberOfFloors);
+        return Objects.hash(serviceCode, nameService);
     }
 }

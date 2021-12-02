@@ -12,11 +12,11 @@ import case_study.furamaResort.services.validate.ValidateFacility;
 import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService {
-    Scanner scanner = new Scanner(System.in);
     final String PATH_VILLA = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\villa.csv";
     final String PATH_HOUSE = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\house.csv";
     final String PATH_ROOM = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\room.csv";
 
+    Scanner scanner = new Scanner(System.in);
     ValidateFacility validate = new ValidateFacility();
     int currentValue = 0;
     Map<Facility, Integer> serviceList = new LinkedHashMap<>();
@@ -62,7 +62,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     public void addVilla() {
         String serviceCode = validate.serviceCode();
-        String nameService = validate.serviceName();
+        String nameService = "Villa";
         double usableArea = validate.usableArea();
         int rentCost = validate.rentCost();
         int maximumPeople = validate.maximumPeople();
@@ -72,11 +72,10 @@ public class FacilityServiceImpl implements FacilityService {
         int floors = validate.numberOfFloors();
         Facility villa = new Villa(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, standard, poolArea, floors);
         if (serviceList.containsKey(villa)) {
-            currentValue = serviceList.get(villa) + 1;
-            serviceList.replace(villa, currentValue);
-            WriteReadFile.writeFile(PATH_VILLA, covertFacilityToString(1), false);
+            System.err.println("add failed.service code already exists. Please try again");
         } else {
             serviceList.put(villa, 1);
+            System.out.println("successfully added");
             WriteReadFile.writeFile(PATH_VILLA, covertFacilityToString(1), false);
         }
     }
@@ -84,7 +83,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     public void addHouse() {
         String serviceCode = validate.serviceCode();
-        String nameService = validate.serviceName();
+        String nameService = "House";
         double usableArea = validate.usableArea();
         int rentCost = validate.rentCost();
         int maximumPeople = validate.maximumPeople();
@@ -93,11 +92,10 @@ public class FacilityServiceImpl implements FacilityService {
         int floors = validate.numberOfFloors();
         Facility house = new House(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, standard, floors);
         if (serviceList.containsKey(house)) {
-            currentValue = serviceList.get(house) + 1;
-            serviceList.replace(house, currentValue);
-            WriteReadFile.writeFile(PATH_HOUSE, covertFacilityToString(2), false);
+            System.err.println("add failed.service code already exists. Please try again");
         } else {
             serviceList.put(house, 1);
+            System.out.println("successfully added");
             WriteReadFile.writeFile(PATH_HOUSE, covertFacilityToString(2), false);
         }
 
@@ -105,7 +103,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     public void addRoom() {
         String serviceCode = validate.serviceCode();
-        String nameService = validate.serviceName();
+        String nameService = "Room";
         double usableArea = validate.usableArea();
         int rentCost = validate.rentCost();
         int maximumPeople = validate.maximumPeople();
@@ -114,12 +112,10 @@ public class FacilityServiceImpl implements FacilityService {
         String freeServiceInclude = scanner.nextLine();
         Facility room = new Room(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, freeServiceInclude);
         if (serviceList.containsKey(room)) {
-            currentValue = serviceList.get(room) + 1;
-            serviceList.replace(room, currentValue);
-            WriteReadFile.writeFile(PATH_ROOM, covertFacilityToString(3), false);
-
+            System.err.println("add failed.service code already exists. Please try again");
         } else {
             serviceList.put(room, 1);
+            System.out.println("successfully added");
             WriteReadFile.writeFile(PATH_ROOM, covertFacilityToString(3), false);
         }
 
@@ -195,4 +191,7 @@ public class FacilityServiceImpl implements FacilityService {
         }
         return roomList;
     }
+    //            currentValue = serviceList.get(room) + 1;
+//            serviceList.replace(room, currentValue);
+//            WriteReadFile.writeFile(PATH_ROOM, covertFacilityToString(3), false);
 }

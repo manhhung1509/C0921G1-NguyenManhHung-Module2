@@ -35,27 +35,27 @@ public class ValidateFacility {
         return code;
     }
 
-    public String serviceName() {
-        String matched = "^[A-Z]\\w+$";
-        String name = "";
-        do {
-            try {
-                System.out.println("enter name of service:");
-                name = sc.nextLine();
-                if (!name.matches(matched)) {
-                    throw new Exception();
-                } else {
-                    break;
-                }
-            } catch (Exception e) {
-                System.err.println("Name of service must be capitalize first letter,\n" +
-                        " the following characters are normal characters \n" +
-                        "service name contains only 1 word(Villa or House or Room \n" +
-                        "enter again: ");
-            }
-        } while (true);
-        return name;
-    }
+//    public String serviceName() {
+//        String matched = "^[A-Z]\\w+$";
+//        String name = "";
+//        do {
+//            try {
+//                System.out.println("enter name of service:");
+//                name = sc.nextLine();
+//                if (!name.matches(matched)) {
+//                    throw new Exception();
+//                } else {
+//                    break;
+//                }
+//            } catch (Exception e) {
+//                System.err.println("Name of service must be capitalize first letter,\n" +
+//                        " the following characters are normal characters \n" +
+//                        "service name contains only 1 word(Villa or House or Room \n" +
+//                        "enter again: ");
+//            }
+//        } while (true);
+//        return name;
+//    }
 
     public double usableArea() {
         String matched = "^(\\-?)(\\d+)$";
@@ -220,6 +220,35 @@ public class ValidateFacility {
             }
         } while (true);
         return standard;
+    }
+
+    public String getStartDay() {
+        String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
+        String startDay = "";
+        while (true) {
+            System.out.println("enter start day:");
+            startDay = sc.nextLine();
+            if (!startDay.matches(matched)) {
+                System.err.println("input incorrect format dd/MM/yyyy");
+            } else {
+                break;
+            }
+        }
+        return startDay;
+    }
+    public String getEnDay() {
+        String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
+        String endDay = "";
+        while (true) {
+            System.out.println("enter end day:");
+            endDay = sc.nextLine();
+            if (!endDay.matches(matched)) {
+                System.err.println("input incorrect format dd/MM/yyyy");
+            } else {
+                break;
+            }
+        }
+        return endDay;
     }
 
     public String birthDay() {

@@ -4,7 +4,6 @@ import case_study.furamaResort.libs.WriteReadFile;
 import case_study.furamaResort.models.Booking;
 import case_study.furamaResort.models.Contract;
 import case_study.furamaResort.services.ContactService;
-
 import java.util.*;
 
 public class ContactServiceImpl implements ContactService {

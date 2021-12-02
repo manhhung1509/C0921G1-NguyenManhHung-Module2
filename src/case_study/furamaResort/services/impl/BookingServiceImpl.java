@@ -2,20 +2,36 @@ package case_study.furamaResort.services.impl;
 
 import case_study.furamaResort.libs.WriteReadFile;
 import case_study.furamaResort.models.Booking;
+import case_study.furamaResort.models.facility.Facility;
+import case_study.furamaResort.models.facility.House;
+import case_study.furamaResort.models.facility.Room;
+import case_study.furamaResort.models.facility.Villa;
 import case_study.furamaResort.services.BookingService;
 import case_study.furamaResort.services.validate.ValidateFacility;
+
 import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
     Scanner sc = new Scanner(System.in);
+    final String PATH_VILLA = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\villa.csv";
+    final String PATH_HOUSE = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\house.csv";
+    final String PATH_ROOM = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\room.csv";
     final String PATH_BOOKING = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\booking.csv";
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     ValidateFacility validateFacility = new ValidateFacility();
+    Map<Facility, Integer> serviceList = new LinkedHashMap<>();
+    Set<Facility> keySet = serviceList.keySet();
     static TreeSet<Booking> bookingList;
 
     {
         bookingList = covertStringToBooking();
+    }
+
+    {
+        facilityService.covertStringToVilla(serviceList);
+        facilityService.covertStringToHouse(serviceList);
+        facilityService.covertStringToRoom(serviceList);
     }
 
     public TreeSet<Booking> bookings() {
@@ -24,12 +40,12 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void addNew() {
+        boolean checkExist = false;
+        int currentValue = 0;
         System.out.println("Enter booking code:");
         String bookingCode = sc.nextLine();
-        System.out.println("Enter start day:");
-        String startDay = sc.nextLine();
-        System.out.println("Enter end day:");
-        String endDay = sc.nextLine();
+        String startDay = validateFacility.getStartDay();
+        String endDay = validateFacility.getEnDay();
         customerService.displayCustomer();
         System.out.println("========================");
         System.out.println("Enter customer code");
@@ -38,9 +54,32 @@ public class BookingServiceImpl implements BookingService {
         String serviceName = sc.nextLine();
         facilityService.displayListFacility();
         String serviceCode = validateFacility.serviceCode();
-        Booking booking = new Booking(bookingCode, startDay, endDay, customerCode, serviceName, serviceCode);
-        bookingList.add(booking);
-        WriteReadFile.writeFile(PATH_BOOKING, covertBookToString(), false);
+        for (Facility key : keySet) {
+            if (serviceName.equals(key.getNameService())) {
+                if (serviceCode.equals(key.getServiceCode())) {
+                    if (key instanceof Villa) {
+                        currentValue = serviceList.get(key) + 1;
+                        facilityService.serviceList.replace(key,currentValue);
+                        WriteReadFile.writeFile(PATH_VILLA, facilityService.covertFacilityToString(1), false);
+                    } else if (key instanceof House) {
+                        currentValue = serviceList.get(key) + 1;
+                        facilityService.serviceList.replace(key,currentValue);
+                        WriteReadFile.writeFile(PATH_HOUSE, facilityService.covertFacilityToString(2), false);
+                    } else if (key instanceof Room){
+                        currentValue = serviceList.get(key) + 1;
+                        facilityService.serviceList.replace(key,currentValue);
+                        WriteReadFile.writeFile(PATH_ROOM, facilityService.covertFacilityToString(3), false);
+                    }
+                    Booking booking = new Booking(bookingCode, startDay, endDay, customerCode, serviceName, serviceCode);
+                    bookingList.add(booking);
+                    WriteReadFile.writeFile(PATH_BOOKING, covertBookToString(), false);
+                    checkExist = true;
+                }
+            }
+        }
+        if (checkExist == false) {
+            System.err.println("service is not found");
+        }
     }
 
     @Override
