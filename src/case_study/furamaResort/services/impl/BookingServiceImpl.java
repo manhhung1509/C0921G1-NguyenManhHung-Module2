@@ -13,9 +13,6 @@ import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
     Scanner sc = new Scanner(System.in);
-    final String PATH_VILLA = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\villa.csv";
-    final String PATH_HOUSE = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\house.csv";
-    final String PATH_ROOM = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\room.csv";
     final String PATH_BOOKING = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\booking.csv";
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
@@ -60,15 +57,15 @@ public class BookingServiceImpl implements BookingService {
                     if (key instanceof Villa) {
                         currentValue = serviceList.get(key) + 1;
                         facilityService.serviceList.replace(key,currentValue);
-                        WriteReadFile.writeFile(PATH_VILLA, facilityService.covertFacilityToString(1), false);
+                        WriteReadFile.writeFile(facilityService.PATH_VILLA, facilityService.covertFacilityToString(1), false);
                     } else if (key instanceof House) {
                         currentValue = serviceList.get(key) + 1;
                         facilityService.serviceList.replace(key,currentValue);
-                        WriteReadFile.writeFile(PATH_HOUSE, facilityService.covertFacilityToString(2), false);
+                        WriteReadFile.writeFile(facilityService.PATH_HOUSE, facilityService.covertFacilityToString(2), false);
                     } else if (key instanceof Room){
                         currentValue = serviceList.get(key) + 1;
                         facilityService.serviceList.replace(key,currentValue);
-                        WriteReadFile.writeFile(PATH_ROOM, facilityService.covertFacilityToString(3), false);
+                        WriteReadFile.writeFile(facilityService.PATH_ROOM, facilityService.covertFacilityToString(3), false);
                     }
                     Booking booking = new Booking(bookingCode, startDay, endDay, customerCode, serviceName, serviceCode);
                     bookingList.add(booking);
