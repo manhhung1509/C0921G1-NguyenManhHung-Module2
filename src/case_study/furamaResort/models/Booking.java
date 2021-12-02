@@ -1,24 +1,29 @@
 package case_study.furamaResort.models;
 
-public class Booking {
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Date;
+import java.util.Objects;
+
+public class Booking implements Comparable<Booking>{
     private String bookingCode;
     private String startDay;
     private String endDay;
     private String customerCode;
     private String serviceName;
-    private String serviceType;
+    private String serviceCode;
 
-    public Booking() {
+    public Booking(){
     }
 
     public Booking(String bookingCode, String startDay, String endDay, String customerCode, String serviceName,
-                   String serviceType) {
+                   String serviceCode) {
         this.bookingCode = bookingCode;
         this.startDay = startDay;
         this.endDay = endDay;
         this.customerCode = customerCode;
         this.serviceName = serviceName;
-        this.serviceType = serviceType;
+        this.serviceCode = serviceCode;
     }
 
     public String getBookingCode() {
@@ -62,22 +67,46 @@ public class Booking {
     }
 
     public String getServiceType() {
-        return serviceType;
+        return serviceCode;
     }
 
     public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
+        this.serviceCode = serviceType;
     }
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "bookingCode='" + bookingCode + '\'' +
-                ", startDay='" + startDay + '\'' +
-                ", endDay='" + endDay + '\'' +
-                ", customerCode='" + customerCode + '\'' +
-                ", serviceName='" + serviceName + '\'' +
-                ", serviceType='" + serviceType + '\'' +
-                '}';
+        return bookingCode + "," + startDay + "," + endDay + "," + customerCode + "," + serviceName + "," + serviceCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Booking)) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(bookingCode, booking.bookingCode) &&
+                Objects.equals(startDay, booking.startDay) &&
+                Objects.equals(endDay, booking.endDay) &&
+                Objects.equals(customerCode, booking.customerCode) &&
+                Objects.equals(serviceName, booking.serviceName) &&
+                Objects.equals(serviceCode, booking.serviceCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookingCode, startDay, endDay, customerCode, serviceName, serviceCode);
+    }
+
+    @Override
+    public int compareTo(Booking o) {
+        Date dateStart1 = new Date(startDay);
+        Date dateStart2 = new Date(o.startDay);
+        Date dateEnd1 = new Date(endDay);
+        Date dateEnd2 = new Date(o.endDay);
+
+        if (dateStart1.compareTo(dateStart2) == 0){
+            return dateEnd1.compareTo(dateEnd2);
+        }
+        return dateStart1.compareTo(dateStart2) ;
     }
 }

@@ -3,12 +3,13 @@ package case_study.furamaResort.services.impl;
 import case_study.furamaResort.libs.WriteReadFile;
 import case_study.furamaResort.models.people.Customer;
 import case_study.furamaResort.services.CustomerService;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class  CustomerServiceImpl implements CustomerService {
+public class CustomerServiceImpl implements CustomerService {
     Scanner sc = new Scanner(System.in);
     String[] customerTypes = {"Diamond", "Platinum", "Gold", "Silver", "Member"};
     final String path = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\customer.csv";
@@ -143,6 +144,7 @@ public class  CustomerServiceImpl implements CustomerService {
             System.out.println(customer);
         }
     }
+
     public List<String> covertCustomerToString() {
         List<String> listString = new LinkedList<>();
         for (Customer customer : customerList) {
@@ -157,7 +159,7 @@ public class  CustomerServiceImpl implements CustomerService {
         String[] arrCustomer;
         for (String line : stringList) {
             arrCustomer = line.split(",");
-            customerList.add(new Customer(arrCustomer[0],arrCustomer[1], arrCustomer[2], arrCustomer[3],arrCustomer[4],arrCustomer[5], arrCustomer[6], arrCustomer[7],arrCustomer[8]));
+            customerList.add(new Customer(arrCustomer[0], arrCustomer[1], arrCustomer[2], arrCustomer[3], arrCustomer[4], arrCustomer[5], arrCustomer[6], arrCustomer[7], arrCustomer[8]));
         }
         return customerList;
     }

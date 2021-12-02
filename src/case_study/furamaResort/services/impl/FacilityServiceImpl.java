@@ -61,6 +61,7 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     public void addVilla() {
+        String serviceCode = validate.serviceCode();
         String nameService = validate.serviceName();
         double usableArea = validate.usableArea();
         int rentCost = validate.rentCost();
@@ -69,7 +70,7 @@ public class FacilityServiceImpl implements FacilityService {
         String standard = validate.standardOfRoom();
         double poolArea = validate.poolArea();
         int floors = validate.numberOfFloors();
-        Facility villa = new Villa(nameService, usableArea, rentCost, maximumPeople, rentalType, standard, poolArea, floors);
+        Facility villa = new Villa(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, standard, poolArea, floors);
         if (serviceList.containsKey(villa)) {
             currentValue = serviceList.get(villa) + 1;
             serviceList.replace(villa, currentValue);
@@ -82,6 +83,7 @@ public class FacilityServiceImpl implements FacilityService {
 
 
     public void addHouse() {
+        String serviceCode = validate.serviceCode();
         String nameService = validate.serviceName();
         double usableArea = validate.usableArea();
         int rentCost = validate.rentCost();
@@ -89,7 +91,7 @@ public class FacilityServiceImpl implements FacilityService {
         String rentalType = validate.rentalType();
         String standard = validate.standardOfRoom();
         int floors = validate.numberOfFloors();
-        Facility house = new House(nameService, usableArea, rentCost, maximumPeople, rentalType, standard, floors);
+        Facility house = new House(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, standard, floors);
         if (serviceList.containsKey(house)) {
             currentValue = serviceList.get(house) + 1;
             serviceList.replace(house, currentValue);
@@ -102,6 +104,7 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     public void addRoom() {
+        String serviceCode = validate.serviceCode();
         String nameService = validate.serviceName();
         double usableArea = validate.usableArea();
         int rentCost = validate.rentCost();
@@ -109,7 +112,7 @@ public class FacilityServiceImpl implements FacilityService {
         String rentalType = validate.rentalType();
         System.out.println("enter free service include: ");
         String freeServiceInclude = scanner.nextLine();
-        Facility room = new Room(nameService, usableArea, rentCost, maximumPeople, rentalType, freeServiceInclude);
+        Facility room = new Room(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, freeServiceInclude);
         if (serviceList.containsKey(room)) {
             currentValue = serviceList.get(room) + 1;
             serviceList.replace(room, currentValue);
@@ -160,36 +163,35 @@ public class FacilityServiceImpl implements FacilityService {
 
     public Map<Facility, Integer> covertStringToVilla(Map<Facility, Integer> villaList) {
         List<String> stringList = WriteReadFile.readFile(PATH_VILLA);
-        String[] arrCustomer;
+        String[] arrVilla;
         for (String line : stringList) {
-            arrCustomer = line.split(",");
-            villaList.put(new Villa(arrCustomer[0], Double.parseDouble(arrCustomer[1]), Integer.parseInt(arrCustomer[2]),
-                    Integer.parseInt(arrCustomer[3]), arrCustomer[4], arrCustomer[5], Double.parseDouble(arrCustomer[6]),
-                    Integer.parseInt(arrCustomer[7])), Integer.parseInt(arrCustomer[8]));
+            arrVilla = line.split(",");
+            villaList.put(new Villa(arrVilla[0],arrVilla[1], Double.parseDouble(arrVilla[2]), Integer.parseInt(arrVilla[3]),
+                    Integer.parseInt(arrVilla[4]), arrVilla[5], arrVilla[6], Double.parseDouble(arrVilla[7]),
+                    Integer.parseInt(arrVilla[8])), Integer.parseInt(arrVilla[9]));
         }
         return villaList;
     }
 
     public Map<Facility, Integer> covertStringToHouse(Map<Facility, Integer> houseList) {
         List<String> stringList = WriteReadFile.readFile(PATH_HOUSE);
-        String[] arrCustomer;
+        String[] arrHouse;
         for (String line : stringList) {
-            arrCustomer = line.split(",");
-            houseList.put(new House(arrCustomer[0], Double.parseDouble(arrCustomer[1]), Integer.parseInt(arrCustomer[2]),
-                            Integer.parseInt(arrCustomer[3]), arrCustomer[4], arrCustomer[5], Integer.parseInt(arrCustomer[6])),
-                    Integer.parseInt(arrCustomer[7]));
+            arrHouse = line.split(",");
+            houseList.put(new House(arrHouse[0],arrHouse[1], Double.parseDouble(arrHouse[2]), Integer.parseInt(arrHouse[3]),
+                            Integer.parseInt(arrHouse[4]), arrHouse[5], arrHouse[6], Integer.parseInt(arrHouse[7])),
+                    Integer.parseInt(arrHouse[8]));
         }
         return houseList;
     }
 
     public Map<Facility, Integer> covertStringToRoom(Map<Facility, Integer> roomList) {
         List<String> stringList = WriteReadFile.readFile(PATH_ROOM);
-        String[] arrCustomer;
+        String[] arrRoom;
         for (String line : stringList) {
-            arrCustomer = line.split(",");
-            roomList.put(new Room(arrCustomer[0], Double.parseDouble(arrCustomer[1]), Integer.parseInt(arrCustomer[2]),
-                    Integer.parseInt(arrCustomer[3]), arrCustomer[4], arrCustomer[5]), Integer.parseInt(arrCustomer[6]));
-            ;
+            arrRoom = line.split(",");
+            roomList.put(new Room(arrRoom[0],arrRoom[1], Double.parseDouble(arrRoom[2]), Integer.parseInt(arrRoom[3]),
+                    Integer.parseInt(arrRoom[4]), arrRoom[5], arrRoom[6]), Integer.parseInt(arrRoom[7]));
         }
         return roomList;
     }

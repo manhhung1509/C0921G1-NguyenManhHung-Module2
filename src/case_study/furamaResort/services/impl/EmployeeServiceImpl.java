@@ -17,7 +17,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     final String path = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\employee.csv";
     static List<Employee> employeeList;
 
-     {
+    {
         employeeList = covertStringToEmployee();
     }
 
@@ -171,6 +171,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             System.out.println(employee);
         }
     }
+
     public List<String> covertEmployeeToString() {
         List<String> listString = new ArrayList<>();
         for (Employee employee : employeeList) {
@@ -185,7 +186,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         String[] arrEmployee;
         for (String line : stringList) {
             arrEmployee = line.split(",");
-            employeeList.add(new Employee(arrEmployee[0],arrEmployee[1], arrEmployee[2], arrEmployee[3],arrEmployee[4],arrEmployee[5], arrEmployee[6], arrEmployee[7],arrEmployee[8],Integer.parseInt(arrEmployee[9])));
+            employeeList.add(new Employee(arrEmployee[0], arrEmployee[1], arrEmployee[2], arrEmployee[3], arrEmployee[4], arrEmployee[5], arrEmployee[6], arrEmployee[7], arrEmployee[8], Integer.parseInt(arrEmployee[9])));
         }
         return employeeList;
     }

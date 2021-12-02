@@ -12,9 +12,9 @@ public class Room extends Facility {
         this.freeServiceIncluded = freeServiceIncluded;
     }
 
-    public Room(String nameService, double usableArea, int rentCost,
+    public Room(String serviceCode, String nameService, double usableArea, int rentCost,
                 int maximumPeople, String rentalType, String freeServiceIncluded) {
-        super(nameService, usableArea, rentCost, maximumPeople, rentalType);
+        super(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType);
         this.freeServiceIncluded = freeServiceIncluded;
     }
 
@@ -28,7 +28,7 @@ public class Room extends Facility {
 
     @Override
     public String toString() {
-        return nameService + "," + usableArea + "," + rentCost + "," + maximumPeople + "," + rentalType + "," + freeServiceIncluded;
+        return serviceCode + "," + nameService + "," + usableArea + "," + rentCost + "," + maximumPeople + "," + rentalType + "," + freeServiceIncluded;
     }
 
     @Override
@@ -39,6 +39,7 @@ public class Room extends Facility {
         return Double.compare(room.usableArea, usableArea) == 0 &&
                 rentCost == room.rentCost &&
                 maximumPeople == room.maximumPeople &&
+                Objects.equals(serviceCode, room.serviceCode) &&
                 Objects.equals(nameService, room.nameService) &&
                 Objects.equals(rentalType, room.rentalType) &&
                 Objects.equals(freeServiceIncluded, room.freeServiceIncluded);
@@ -46,6 +47,6 @@ public class Room extends Facility {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nameService, usableArea, rentCost, maximumPeople, rentalType, freeServiceIncluded);
+        return Objects.hash(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, freeServiceIncluded);
     }
 }

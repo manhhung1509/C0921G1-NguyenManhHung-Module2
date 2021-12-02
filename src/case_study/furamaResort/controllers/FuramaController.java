@@ -1,9 +1,6 @@
 package case_study.furamaResort.controllers;
 
-import case_study.furamaResort.services.impl.CustomerServiceImpl;
-import case_study.furamaResort.services.impl.EmployeeServiceImpl;
-import case_study.furamaResort.services.impl.FacilityServiceImpl;
-import javafx.scene.chart.ScatterChart;
+import case_study.furamaResort.services.impl.*;
 
 import java.util.Scanner;
 
@@ -11,6 +8,8 @@ public class FuramaController {
     EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
+    BookingServiceImpl bookingService = new BookingServiceImpl();
+    ContactServiceImpl contactService = new ContactServiceImpl();
 
     public void displayMainMenu() {
         int choice = 0;
@@ -34,7 +33,7 @@ public class FuramaController {
                                 System.out.println("1. Display list employees");
                                 System.out.println("2. Add new employee");
                                 System.out.println("3. Edit employee");
-                                System.out.println("4. Return Student8 menu");
+                                System.out.println("4. Return Employee menu");
                                 System.out.println("============================ \n");
                                 choose = Integer.parseInt(input.nextLine());
                                 switch (choose) {
@@ -62,7 +61,7 @@ public class FuramaController {
                                 System.out.println("1. Display list customers");
                                 System.out.println("2. Add new customer");
                                 System.out.println("3. Edit customer");
-                                System.out.println("4. Return Student8 menu");
+                                System.out.println("4. Return Employee menu");
                                 System.out.println("============================ \n");
                                 choose = Integer.parseInt(input.nextLine());
                                 switch (choose) {
@@ -117,16 +116,36 @@ public class FuramaController {
                             try {
                                 System.out.println("1. Add new booking");
                                 System.out.println("2. Display list booking");
-                                System.out.println("3. Create new constracts");
+                                System.out.println("3. Create new contracts");
                                 System.out.println("4. Display list contracts");
-                                System.out.println("4. Edit contracts");
-                                System.out.println("4. Return Student8 menu");
+                                System.out.println("5. Edit contracts");
+                                System.out.println("6. Return Employee menu");
                                 System.out.println("============================ \n");
                                 choose = Integer.parseInt(input.nextLine());
+                                switch (choose) {
+                                    case 1:
+                                        bookingService.addNew();
+                                        break;
+                                    case 2:
+                                        bookingService.displayListBooking();
+                                        break;
+                                    case 3:
+                                        contactService.addNew();
+                                        break;
+                                    case 4:
+                                        contactService.displayListContracts();
+                                        break;
+                                    case 5:
+                                        contactService.editContracts();
+                                        break;
+                                    case 6:
+                                        displayMainMenu();
+                                        break;
+                                }
                             } catch (NumberFormatException e) {
                                 System.err.println("input is not a number");
                             }
-                        } while (choose != 4);
+                        } while (choose != 6);
                         break;
                     case 5:
                         do {

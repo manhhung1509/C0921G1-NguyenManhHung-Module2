@@ -16,9 +16,9 @@ public class Villa extends Facility {
         NumberOfFloors = numberOfFloors;
     }
 
-    public Villa(String nameService, double usableArea, int rentCost, int maximumPeople,
+    public Villa(String serviceCode, String nameService, double usableArea, int rentCost, int maximumPeople,
                  String rentalType, String standardOfRoom, double poolArea, int numberOfFloors) {
-        super(nameService, usableArea, rentCost, maximumPeople, rentalType);
+        super(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType);
         this.standardOfRoom = standardOfRoom;
         this.poolArea = poolArea;
         NumberOfFloors = numberOfFloors;
@@ -50,7 +50,7 @@ public class Villa extends Facility {
 
     @Override
     public String toString() {
-        return nameService + "," + usableArea + "," + rentCost + "," + maximumPeople + "," + rentalType + "," + standardOfRoom + "," + poolArea + "," + NumberOfFloors;
+        return serviceCode + "," + nameService + "," + usableArea + "," + rentCost + "," + maximumPeople + "," + rentalType + "," + standardOfRoom + "," + poolArea + "," + NumberOfFloors;
     }
 
     @Override
@@ -63,6 +63,7 @@ public class Villa extends Facility {
                 maximumPeople == villa.maximumPeople &&
                 Double.compare(villa.poolArea, poolArea) == 0 &&
                 NumberOfFloors == villa.NumberOfFloors &&
+                Objects.equals(serviceCode, villa.serviceCode) &&
                 Objects.equals(nameService, villa.nameService) &&
                 Objects.equals(rentalType, villa.rentalType) &&
                 Objects.equals(standardOfRoom, villa.standardOfRoom);
@@ -70,6 +71,6 @@ public class Villa extends Facility {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nameService, usableArea, rentCost, maximumPeople, rentalType, standardOfRoom, poolArea, NumberOfFloors);
+        return Objects.hash(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, standardOfRoom, poolArea, NumberOfFloors);
     }
 }

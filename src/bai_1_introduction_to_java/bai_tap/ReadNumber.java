@@ -11,7 +11,7 @@
 //        System.out.print(num > 0 ? val : "");
 //    }
 //​
-//    public static void Student8(String[] args) {
+//    public static void Employee(String[] args) {
 //        System.out.print("Input a number:");
 //        int num = new Scanner(System.in).nextInt();
 //        numberToWord(((num / 100) % 10), " HUNDRED AND");

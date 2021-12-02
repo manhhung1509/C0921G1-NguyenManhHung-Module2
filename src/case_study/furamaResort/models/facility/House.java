@@ -14,9 +14,9 @@ public class House extends Facility {
         NumberOfFloors = numberOfFloors;
     }
 
-    public House(String nameService, double usableArea, int rentCost, int maximumPeople,
+    public House(String serviceCode, String nameService, double usableArea, int rentCost, int maximumPeople,
                  String rentalType, String standardOfRoom, int numberOfFloors) {
-        super(nameService, usableArea, rentCost, maximumPeople, rentalType);
+        super(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType);
         this.standardOfRoom = standardOfRoom;
         NumberOfFloors = numberOfFloors;
     }
@@ -39,7 +39,8 @@ public class House extends Facility {
 
     @Override
     public String toString() {
-        return nameService + "," + usableArea + "," + rentCost + "," + maximumPeople + "," + rentalType + "," + standardOfRoom + "," + NumberOfFloors;
+        return serviceCode + "," + nameService + "," + usableArea + "," + rentCost + "," + maximumPeople + "," +
+                rentalType + "," + standardOfRoom + "," + NumberOfFloors;
     }
 
     @Override
@@ -51,6 +52,7 @@ public class House extends Facility {
                 rentCost == house.rentCost &&
                 maximumPeople == house.maximumPeople &&
                 NumberOfFloors == house.NumberOfFloors &&
+                Objects.equals(serviceCode, house.serviceCode) &&
                 Objects.equals(nameService, house.nameService) &&
                 Objects.equals(rentalType, house.rentalType) &&
                 Objects.equals(standardOfRoom, house.standardOfRoom);
@@ -58,6 +60,6 @@ public class House extends Facility {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nameService, usableArea, rentCost, maximumPeople, rentalType, standardOfRoom, NumberOfFloors);
+        return Objects.hash(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, standardOfRoom, NumberOfFloors);
     }
 }

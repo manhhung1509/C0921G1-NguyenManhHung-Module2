@@ -1,4 +1,4 @@
-Room,50.0,100,4,Year,Free Cafe,4
-Room,40.0,120,2,Day,Free Massage,5
-Room,80.0,130,3,Month,Free Cafe,6
-Room,100.0,140,5,Year,Free Massage,9
+SVRO-0001,room,50.0,100,4,Year,Free Cafe,4
+SVRO-0002,room,40.0,120,2,Day,Free Massage,5
+SVRO-0003,room,80.0,130,3,Month,Free Cafe,6
+SVRO-0004,room,100.0,140,5,Year,Free Massage,9
