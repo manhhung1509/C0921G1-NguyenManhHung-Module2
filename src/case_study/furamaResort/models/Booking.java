@@ -1,8 +1,12 @@
 package case_study.furamaResort.models;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public class Booking implements Comparable<Booking>{
+public class Booking implements Comparable<Booking> {
     private String bookingCode;
     private String startDay;
     private String endDay;
@@ -10,7 +14,7 @@ public class Booking implements Comparable<Booking>{
     private String serviceName;
     private String serviceCode;
 
-    public Booking(){
+    public Booking() {
     }
 
     public Booking(String bookingCode, String startDay, String endDay, String customerCode, String serviceName,
@@ -96,14 +100,23 @@ public class Booking implements Comparable<Booking>{
 
     @Override
     public int compareTo(Booking o) {
-        Date dateStart1 = new Date(startDay);
-        Date dateStart2 = new Date(o.startDay);
-        Date dateEnd1 = new Date(endDay);
-        Date dateEnd2 = new Date(o.endDay);
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateStart1 = null;
+        Date dateStart2 = null;
+        Date dateEnd1 = null;
+        Date dateEnd2 = null;
+        try {
+            dateStart1 = format.parse(startDay);
+            dateStart2 = format.parse(o.startDay);
+            dateEnd1 = format.parse(endDay);
+            dateEnd2 = format.parse(o.endDay);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-        if (dateStart1.compareTo(dateStart2) == 0){
+        if (dateStart1.compareTo(dateStart2) == 0) {
             return dateEnd1.compareTo(dateEnd2);
         }
-        return dateStart1.compareTo(dateStart2) ;
+        return dateStart1.compareTo(dateStart2);
     }
 }

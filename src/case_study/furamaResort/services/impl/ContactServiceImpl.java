@@ -9,7 +9,6 @@ import java.util.*;
 public class ContactServiceImpl implements ContactService {
     Scanner sc = new Scanner(System.in);
     BookingServiceImpl bookingService = new BookingServiceImpl();
-    final String PATH_BOOKING = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\booking.csv";
     final String PATH_CONTRACt = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\contract.csv";
     static Queue<Booking> bookingList = new LinkedList<>();
     static Queue<Contract> contractList = new LinkedList<>();
@@ -23,7 +22,7 @@ public class ContactServiceImpl implements ContactService {
     public void addNew() {
         Booking booking = bookingList.poll();
         System.out.println(booking);
-        WriteReadFile.writeFile(PATH_BOOKING, covertBookingToString(), false);
+        WriteReadFile.writeFile(bookingService.PATH_BOOKING, covertBookingToString(), false);
         System.out.println("========================");
         if ("Villa".equals(booking.getServiceName()) || "House".equals(booking.getServiceName())) {
             String bookingCode = booking.getBookingCode();
@@ -96,9 +95,6 @@ public class ContactServiceImpl implements ContactService {
             System.out.println(contract);
         }
         System.out.println("=======================");
-        for (Booking booking : bookingList) {
-            System.out.println(booking);
-        }
     }
 
     public List<String> covertBookingToString() {

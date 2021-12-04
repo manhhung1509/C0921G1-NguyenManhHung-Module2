@@ -13,7 +13,7 @@ import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
     Scanner sc = new Scanner(System.in);
-    final String PATH_BOOKING = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\booking.csv";
+    final String PATH_BOOKING = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\booking_list.csv";
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     ValidateFacility validateFacility = new ValidateFacility();

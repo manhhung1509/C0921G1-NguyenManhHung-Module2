@@ -155,6 +155,17 @@ public class FuramaController {
                                 System.out.println("3. Return menu \n");
                                 System.out.println("============================");
                                 choose = Integer.parseInt(input.nextLine());
+                                switch (choose) {
+                                    case 1:
+                                        bookingService.addNew();
+                                        break;
+                                    case 2:
+                                        bookingService.displayListBooking();
+                                        break;
+                                    case 3:
+                                        displayMainMenu();
+                                        break;
+                                }
                             } catch (NumberFormatException e) {
                                 System.err.println("input is not a number");
                             }
