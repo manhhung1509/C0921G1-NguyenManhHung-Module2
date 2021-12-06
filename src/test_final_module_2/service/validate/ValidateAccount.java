@@ -5,19 +5,19 @@ import java.util.Scanner;
 public class ValidateAccount {
     static Scanner sc = new Scanner(System.in);
 
-    public static int getIDAccount() {
-        int id = 0;
-        System.out.println("enter id account");
-        do {
-            try {
-                id = Integer.parseInt(sc.nextLine());
-                break;
-            } catch (Exception e) {
-                System.err.println("enter number");
-            }
-        } while (true);
-        return id;
-    }
+//    public static int getIDAccount() {
+//        int id = 0;
+//        System.out.println("enter id account");
+//        do {
+//            try {
+//                id = Integer.parseInt(sc.nextLine());
+//                break;
+//            } catch (Exception e) {
+//                System.err.println("enter number");
+//            }
+//        } while (true);
+//        return id;
+//    }
 
     public static String getNameOfOwner() {
         String matched = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";

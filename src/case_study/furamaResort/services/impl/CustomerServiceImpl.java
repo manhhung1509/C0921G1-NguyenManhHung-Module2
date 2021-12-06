@@ -1,6 +1,6 @@
 package case_study.furamaResort.services.impl;
 
-import case_study.furamaResort.libs.WriteReadFile;
+import case_study.furamaResort.utils.WriteReadFile;
 import case_study.furamaResort.models.people.Customer;
 import case_study.furamaResort.services.CustomerService;
 

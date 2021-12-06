@@ -1,6 +1,6 @@
 package case_study.furamaResort.services.impl;
 
-import case_study.furamaResort.libs.WriteReadFile;
+import case_study.furamaResort.utils.WriteReadFile;
 import case_study.furamaResort.models.people.Employee;
 import case_study.furamaResort.services.EmployeeService;
 import on_tap.manage_student.common.FileUtils;

@@ -1,6 +1,6 @@
 package case_study.furamaResort.services.impl;
 
-import case_study.furamaResort.libs.WriteReadFile;
+import case_study.furamaResort.utils.WriteReadFile;
 import case_study.furamaResort.models.Booking;
 import case_study.furamaResort.models.facility.Facility;
 import case_study.furamaResort.models.facility.House;
@@ -16,7 +16,6 @@ public class BookingServiceImpl implements BookingService {
     final String PATH_BOOKING = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\booking_list.csv";
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
-    ValidateFacility validateFacility = new ValidateFacility();
     Map<Facility, Integer> serviceList = new LinkedHashMap<>();
     Set<Facility> keySet = serviceList.keySet();
     static TreeSet<Booking> bookingList;
@@ -41,8 +40,8 @@ public class BookingServiceImpl implements BookingService {
         int currentValue = 0;
         System.out.println("Enter booking code:");
         String bookingCode = sc.nextLine();
-        String startDay = validateFacility.getStartDay();
-        String endDay = validateFacility.getEnDay();
+        String startDay = ValidateFacility.getStartDay();
+        String endDay = ValidateFacility.getEnDay();
         customerService.displayCustomer();
         System.out.println("========================");
         System.out.println("Enter customer code");
@@ -50,21 +49,21 @@ public class BookingServiceImpl implements BookingService {
         System.out.println("Enter service name:");
         String serviceName = sc.nextLine();
         facilityService.displayListFacility();
-        String serviceCode = validateFacility.serviceCode();
+        String serviceCode = ValidateFacility.serviceCode();
         for (Facility key : keySet) {
             if (serviceName.equals(key.getNameService())) {
                 if (serviceCode.equals(key.getServiceCode())) {
                     if (key instanceof Villa) {
                         currentValue = serviceList.get(key) + 1;
-                        facilityService.serviceList.replace(key,currentValue);
+                        facilityService.serviceList.replace(key, currentValue);
                         WriteReadFile.writeFile(facilityService.PATH_VILLA, facilityService.covertFacilityToString(1), false);
                     } else if (key instanceof House) {
                         currentValue = serviceList.get(key) + 1;
-                        facilityService.serviceList.replace(key,currentValue);
+                        facilityService.serviceList.replace(key, currentValue);
                         WriteReadFile.writeFile(facilityService.PATH_HOUSE, facilityService.covertFacilityToString(2), false);
-                    } else if (key instanceof Room){
+                    } else if (key instanceof Room) {
                         currentValue = serviceList.get(key) + 1;
-                        facilityService.serviceList.replace(key,currentValue);
+                        facilityService.serviceList.replace(key, currentValue);
                         WriteReadFile.writeFile(facilityService.PATH_ROOM, facilityService.covertFacilityToString(3), false);
                     }
                     Booking booking = new Booking(bookingCode, startDay, endDay, customerCode, serviceName, serviceCode);

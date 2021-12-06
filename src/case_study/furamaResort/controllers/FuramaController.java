@@ -1,15 +1,16 @@
 package case_study.furamaResort.controllers;
 
+import case_study.furamaResort.services.*;
 import case_study.furamaResort.services.impl.*;
 
 import java.util.Scanner;
 
 public class FuramaController {
-    EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
-    CustomerServiceImpl customerService = new CustomerServiceImpl();
-    FacilityServiceImpl facilityService = new FacilityServiceImpl();
-    BookingServiceImpl bookingService = new BookingServiceImpl();
-    ContactServiceImpl contactService = new ContactServiceImpl();
+    EmployeeService employeeService = new EmployeeServiceImpl();
+    CustomerService customerService = new CustomerServiceImpl();
+    FacilityService facilityService = new FacilityServiceImpl();
+    BookingService bookingService = new BookingServiceImpl();
+    ContactService contactService = new ContactServiceImpl();
 
     public void displayMainMenu() {
         int choice = 0;

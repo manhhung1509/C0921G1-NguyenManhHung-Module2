@@ -11,10 +11,10 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class ValidateFacility {
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-    public String serviceCode() {
-        String matched = "^(SV)(VL|HO|RO)\\-(\\d{4})$";
+    public static String serviceCode() {
+        final String matched = "^(SV)(VL|HO|RO)\\-(\\d{4})$";
         String code = "";
         do {
             try {
@@ -57,8 +57,8 @@ public class ValidateFacility {
 //        return name;
 //    }
 
-    public double usableArea() {
-        String matched = "^(\\-?)(\\d+)$";
+    public static double usableArea() {
+        final String matched = "^(\\-?)(\\d+)$";
         String input = "";
         double area = 0.0;
         do {
@@ -82,8 +82,8 @@ public class ValidateFacility {
         return area;
     }
 
-    public double poolArea() {
-        String matched = "^(\\-?)(\\d+)$";
+    public static double poolArea() {
+        final String matched = "^(\\-?)(\\d+)$";
         String input = "";
         double area = 0.0;
         do {
@@ -107,7 +107,7 @@ public class ValidateFacility {
         return area;
     }
 
-    public int rentCost() {
+    public static int rentCost() {
         String matched = "^(\\-?)(\\d+)$";
         String input = "";
         int renCost = 0;
@@ -132,8 +132,8 @@ public class ValidateFacility {
         return renCost;
     }
 
-    public int maximumPeople() {
-        String matched = "^(\\-?)(\\d+)$";
+    public static int maximumPeople() {
+        final String matched = "^(\\-?)(\\d+)$";
         String input = "";
         int maximumNumber = 0;
         do {
@@ -157,8 +157,8 @@ public class ValidateFacility {
         return maximumNumber;
     }
 
-    public int numberOfFloors() {
-        String matched = "^(\\-?)(\\d+)$";
+    public static int numberOfFloors() {
+        final String matched = "^(\\-?)(\\d+)$";
         String input = "";
         int floor = 0;
         do {
@@ -182,8 +182,8 @@ public class ValidateFacility {
         return floor;
     }
 
-    public String rentalType() {
-        String matched = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";
+    public static String rentalType() {
+        final String matched = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";
         String type = "";
         do {
             try {
@@ -202,8 +202,8 @@ public class ValidateFacility {
         return type;
     }
 
-    public String standardOfRoom() {
-        String matched = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";
+    public static String standardOfRoom() {
+        final String matched = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";
         String standard = "";
         do {
             try {
@@ -222,8 +222,8 @@ public class ValidateFacility {
         return standard;
     }
 
-    public String getStartDay() {
-        String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
+    public static String getStartDay() {
+        final String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
         String startDay = "";
         while (true) {
             System.out.println("enter start day:");
@@ -236,8 +236,9 @@ public class ValidateFacility {
         }
         return startDay;
     }
-    public String getEnDay() {
-        String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
+
+    public static String getEnDay() {
+        final String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
         String endDay = "";
         while (true) {
             System.out.println("enter end day:");
@@ -251,7 +252,7 @@ public class ValidateFacility {
         return endDay;
     }
 
-    public String birthDay() {
+    public static String birthDay() {
         LocalDateTime localDateTime = LocalDateTime.now();
         int day = localDateTime.getDayOfMonth();
         int month = localDateTime.getMonthValue();
@@ -259,7 +260,7 @@ public class ValidateFacility {
         String currentTime = day + "/" + month + "/" + year;
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
-        String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
+        final String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
         String birthday;
         while (true) {
             try {

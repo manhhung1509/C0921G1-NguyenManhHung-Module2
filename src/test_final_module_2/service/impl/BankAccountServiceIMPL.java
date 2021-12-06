@@ -1,7 +1,7 @@
 package test_final_module_2.service.impl;
 
 import test_final_module_2.controllers.BankController;
-import test_final_module_2.libs.ReadWriteFile;
+import test_final_module_2.utils.ReadWriteFile;
 import test_final_module_2.model.BankAccount;
 import test_final_module_2.model.PaymentAccount;
 import test_final_module_2.model.SavingAccount;
@@ -46,7 +46,7 @@ public class BankAccountServiceIMPL implements BankAccountService {
                 System.err.println("enter number");
             }
         } while (true);
-        int id = 0;
+        int id = 1;
         if (bankAccountList.size() != 0) {
             id = bankAccountList.get(bankAccountList.size() - 1).getAccountID() + 1;
         }
@@ -83,6 +83,10 @@ public class BankAccountServiceIMPL implements BankAccountService {
             try {
                 System.out.println("enter code bank account");
                 code = sc.nextLine();
+                if(bankAccountList.size() ==0){
+                    System.err.println("account is not found");
+                    break;
+                }
                 for (BankAccount bankAccount : bankAccountList) {
                     if (code.equals(bankAccount.getAccountCode())) {
                         do {

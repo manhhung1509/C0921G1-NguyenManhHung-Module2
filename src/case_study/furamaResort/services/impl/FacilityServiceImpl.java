@@ -1,7 +1,7 @@
 package case_study.furamaResort.services.impl;
 
 import case_study.furamaResort.controllers.FuramaController;
-import case_study.furamaResort.libs.WriteReadFile;
+import case_study.furamaResort.utils.WriteReadFile;
 import case_study.furamaResort.models.facility.Facility;
 import case_study.furamaResort.models.facility.House;
 import case_study.furamaResort.models.facility.Room;
@@ -17,7 +17,6 @@ public class FacilityServiceImpl implements FacilityService {
     final String PATH_ROOM = "C:\\newcodegym\\C0921G1-NguyenManhHung-Module2\\src\\case_study\\furamaResort\\data\\room.csv";
 
     Scanner scanner = new Scanner(System.in);
-    ValidateFacility validate = new ValidateFacility();
     int currentValue = 0;
     Map<Facility, Integer> serviceList = new LinkedHashMap<>();
     Set<Facility> keySet = serviceList.keySet();
@@ -61,15 +60,15 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     public void addVilla() {
-        String serviceCode = validate.serviceCode();
+        String serviceCode = ValidateFacility.serviceCode();
         String nameService = "Villa";
-        double usableArea = validate.usableArea();
-        int rentCost = validate.rentCost();
-        int maximumPeople = validate.maximumPeople();
-        String rentalType = validate.rentalType();
-        String standard = validate.standardOfRoom();
-        double poolArea = validate.poolArea();
-        int floors = validate.numberOfFloors();
+        double usableArea = ValidateFacility.usableArea();
+        int rentCost = ValidateFacility.rentCost();
+        int maximumPeople = ValidateFacility.maximumPeople();
+        String rentalType = ValidateFacility.rentalType();
+        String standard = ValidateFacility.standardOfRoom();
+        double poolArea = ValidateFacility.poolArea();
+        int floors = ValidateFacility.numberOfFloors();
         Facility villa = new Villa(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, standard, poolArea, floors);
         if (serviceList.containsKey(villa)) {
             System.err.println("add failed.service code already exists. Please try again");
@@ -82,14 +81,14 @@ public class FacilityServiceImpl implements FacilityService {
 
 
     public void addHouse() {
-        String serviceCode = validate.serviceCode();
+        String serviceCode = ValidateFacility.serviceCode();
         String nameService = "House";
-        double usableArea = validate.usableArea();
-        int rentCost = validate.rentCost();
-        int maximumPeople = validate.maximumPeople();
-        String rentalType = validate.rentalType();
-        String standard = validate.standardOfRoom();
-        int floors = validate.numberOfFloors();
+        double usableArea = ValidateFacility.usableArea();
+        int rentCost = ValidateFacility.rentCost();
+        int maximumPeople = ValidateFacility.maximumPeople();
+        String rentalType = ValidateFacility.rentalType();
+        String standard = ValidateFacility.standardOfRoom();
+        int floors = ValidateFacility.numberOfFloors();
         Facility house = new House(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, standard, floors);
         if (serviceList.containsKey(house)) {
             System.err.println("add failed.service code already exists. Please try again");
@@ -102,12 +101,12 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     public void addRoom() {
-        String serviceCode = validate.serviceCode();
+        String serviceCode = ValidateFacility.serviceCode();
         String nameService = "Room";
-        double usableArea = validate.usableArea();
-        int rentCost = validate.rentCost();
-        int maximumPeople = validate.maximumPeople();
-        String rentalType = validate.rentalType();
+        double usableArea = ValidateFacility.usableArea();
+        int rentCost = ValidateFacility.rentCost();
+        int maximumPeople = ValidateFacility.maximumPeople();
+        String rentalType = ValidateFacility.rentalType();
         System.out.println("enter free service include: ");
         String freeServiceInclude = scanner.nextLine();
         Facility room = new Room(serviceCode, nameService, usableArea, rentCost, maximumPeople, rentalType, freeServiceInclude);
@@ -162,7 +161,7 @@ public class FacilityServiceImpl implements FacilityService {
         String[] arrVilla;
         for (String line : stringList) {
             arrVilla = line.split(",");
-            villaList.put(new Villa(arrVilla[0],arrVilla[1], Double.parseDouble(arrVilla[2]), Integer.parseInt(arrVilla[3]),
+            villaList.put(new Villa(arrVilla[0], arrVilla[1], Double.parseDouble(arrVilla[2]), Integer.parseInt(arrVilla[3]),
                     Integer.parseInt(arrVilla[4]), arrVilla[5], arrVilla[6], Double.parseDouble(arrVilla[7]),
                     Integer.parseInt(arrVilla[8])), Integer.parseInt(arrVilla[9]));
         }
@@ -174,7 +173,7 @@ public class FacilityServiceImpl implements FacilityService {
         String[] arrHouse;
         for (String line : stringList) {
             arrHouse = line.split(",");
-            houseList.put(new House(arrHouse[0],arrHouse[1], Double.parseDouble(arrHouse[2]), Integer.parseInt(arrHouse[3]),
+            houseList.put(new House(arrHouse[0], arrHouse[1], Double.parseDouble(arrHouse[2]), Integer.parseInt(arrHouse[3]),
                             Integer.parseInt(arrHouse[4]), arrHouse[5], arrHouse[6], Integer.parseInt(arrHouse[7])),
                     Integer.parseInt(arrHouse[8]));
         }
@@ -186,12 +185,9 @@ public class FacilityServiceImpl implements FacilityService {
         String[] arrRoom;
         for (String line : stringList) {
             arrRoom = line.split(",");
-            roomList.put(new Room(arrRoom[0],arrRoom[1], Double.parseDouble(arrRoom[2]), Integer.parseInt(arrRoom[3]),
+            roomList.put(new Room(arrRoom[0], arrRoom[1], Double.parseDouble(arrRoom[2]), Integer.parseInt(arrRoom[3]),
                     Integer.parseInt(arrRoom[4]), arrRoom[5], arrRoom[6]), Integer.parseInt(arrRoom[7]));
         }
         return roomList;
     }
-    //            currentValue = serviceList.get(room) + 1;
-//            serviceList.replace(room, currentValue);
-//            WriteReadFile.writeFile(PATH_ROOM, covertFacilityToString(3), false);
 }
