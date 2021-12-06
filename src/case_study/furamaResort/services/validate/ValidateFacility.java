@@ -14,13 +14,13 @@ public class ValidateFacility {
     static Scanner sc = new Scanner(System.in);
 
     public static String serviceCode() {
-        final String matched = "^(SV)(VL|HO|RO)\\-(\\d{4})$";
+        final String MATCHED = "^(SV)(VL|HO|RO)\\-(\\d{4})$";
         String code = "";
         do {
             try {
                 System.out.println("enter service code:");
                 code = sc.nextLine();
-                if (!code.matches(matched)) {
+                if (!code.matches(MATCHED)) {
                     throw new Exception();
                 } else {
                     break;
@@ -58,14 +58,14 @@ public class ValidateFacility {
 //    }
 
     public static double usableArea() {
-        final String matched = "^(\\-?)(\\d+)$";
+        final String MATCHED = "^(\\-?)(\\d+)$";
         String input = "";
         double area = 0.0;
         do {
             try {
                 System.out.println("enter usable area");
                 input = sc.nextLine();
-                if (!input.matches(matched)) {
+                if (!input.matches(MATCHED)) {
                     throw new IllegalUsableAreaException();
                 } else {
                     area = Double.parseDouble(input);
@@ -83,14 +83,14 @@ public class ValidateFacility {
     }
 
     public static double poolArea() {
-        final String matched = "^(\\-?)(\\d+)$";
+        final String MATCHED = "^(\\-?)(\\d+)$";
         String input = "";
         double area = 0.0;
         do {
             try {
                 System.out.println("enter pool area");
                 input = sc.nextLine();
-                if (!input.matches(matched)) {
+                if (!input.matches(MATCHED)) {
                     throw new IllegalPoolAreaException();
                 } else {
                     area = Double.parseDouble(input);
@@ -108,14 +108,14 @@ public class ValidateFacility {
     }
 
     public static int rentCost() {
-        String matched = "^(\\-?)(\\d+)$";
+        String MATCHED = "^(\\-?)(\\d+)$";
         String input = "";
         int renCost = 0;
         do {
             try {
                 System.out.println("enter rent cost");
                 input = sc.nextLine();
-                if (!input.matches(matched)) {
+                if (!input.matches(MATCHED)) {
                     throw new IllegalRentCostException();
                 } else {
                     renCost = Integer.parseInt(input);
@@ -133,14 +133,14 @@ public class ValidateFacility {
     }
 
     public static int maximumPeople() {
-        final String matched = "^(\\-?)(\\d+)$";
+        final String MATCHED = "^(\\-?)(\\d+)$";
         String input = "";
         int maximumNumber = 0;
         do {
             try {
                 System.out.println("enter maximum people");
                 input = sc.nextLine();
-                if (!input.matches(matched)) {
+                if (!input.matches(MATCHED)) {
                     throw new IllegalMaximumNumberException();
                 } else {
                     maximumNumber = Integer.parseInt(input);
@@ -158,14 +158,14 @@ public class ValidateFacility {
     }
 
     public static int numberOfFloors() {
-        final String matched = "^(\\-?)(\\d+)$";
+        final String MATCHED = "^(\\-?)(\\d+)$";
         String input = "";
         int floor = 0;
         do {
             try {
                 System.out.println("enter number of floor");
                 input = sc.nextLine();
-                if (!input.matches(matched)) {
+                if (!input.matches(MATCHED)) {
                     throw new IllegalNumberOfFloorException();
                 } else {
                     floor = Integer.parseInt(input);
@@ -183,13 +183,13 @@ public class ValidateFacility {
     }
 
     public static String rentalType() {
-        final String matched = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";
+        final String MATCHED = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";
         String type = "";
         do {
             try {
                 System.out.println("enter rent type:");
                 type = sc.nextLine();
-                if (!type.matches(matched)) {
+                if (!type.matches(MATCHED)) {
                     throw new Exception();
                 } else {
                     break;
@@ -203,13 +203,13 @@ public class ValidateFacility {
     }
 
     public static String standardOfRoom() {
-        final String matched = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";
+        final String MATCHED = "^[A-Z]\\w*(\\s[A-Z]\\w*)*$";
         String standard = "";
         do {
             try {
                 System.out.println("standard of room:");
                 standard = sc.nextLine();
-                if (!standard.matches(matched)) {
+                if (!standard.matches(MATCHED)) {
                     throw new Exception();
                 } else {
                     break;
@@ -223,12 +223,12 @@ public class ValidateFacility {
     }
 
     public static String getStartDay() {
-        final String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
+        final String MATCHED = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
         String startDay = "";
         while (true) {
             System.out.println("enter start day:");
             startDay = sc.nextLine();
-            if (!startDay.matches(matched)) {
+            if (!startDay.matches(MATCHED)) {
                 System.err.println("input incorrect format dd/MM/yyyy");
             } else {
                 break;
@@ -238,12 +238,12 @@ public class ValidateFacility {
     }
 
     public static String getEnDay() {
-        final String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
+        final String MATCHED = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
         String endDay = "";
         while (true) {
             System.out.println("enter end day:");
             endDay = sc.nextLine();
-            if (!endDay.matches(matched)) {
+            if (!endDay.matches(MATCHED)) {
                 System.err.println("input incorrect format dd/MM/yyyy");
             } else {
                 break;
@@ -260,13 +260,13 @@ public class ValidateFacility {
         String currentTime = day + "/" + month + "/" + year;
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
-        final String matched = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
+        final String MATCHED = "^\\d{1,2}\\/\\d{1,2}\\/\\d{4}$";
         String birthday;
         while (true) {
             try {
                 System.out.println("enter birthday :");
                 birthday = sc.nextLine();
-                if (!birthday.matches(matched)) {
+                if (!birthday.matches(MATCHED)) {
                     throw new IllegalBirthdayException();
                 } else {
                     try {

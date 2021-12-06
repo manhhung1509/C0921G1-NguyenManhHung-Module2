@@ -1,7 +1,7 @@
 package test_final_module_2.service.impl;
 
 import test_final_module_2.controllers.BankController;
-import test_final_module_2.utils.ReadWriteFile;
+import test_final_module_2.utils.ReadFile;
 import test_final_module_2.model.BankAccount;
 import test_final_module_2.model.PaymentAccount;
 import test_final_module_2.model.SavingAccount;
@@ -60,7 +60,7 @@ public class BankAccountServiceIMPL implements BankAccountService {
             BankAccount paymentAccount = new PaymentAccount(id, code, name, date, cardNumber, moneyInAccount);
             bankAccountList.add(paymentAccount);
             System.out.println("create successful");
-            ReadWriteFile.writeFile(PATH, covertAccountToString(), false);
+            ReadFile.writeFile(PATH, covertAccountToString(), false);
         } else {
             int SavingDepositAmount = ValidateAccount.MoneySaving();
             String savingDay = ValidateAccount.savingDate();
@@ -69,7 +69,7 @@ public class BankAccountServiceIMPL implements BankAccountService {
             BankAccount savingAccount = new SavingAccount(id, code, name, date, SavingDepositAmount, savingDay, interestRate, period);
             bankAccountList.add(savingAccount);
             System.out.println("create successful");
-            ReadWriteFile.writeFile(PATH, covertAccountToString(), false);
+            ReadFile.writeFile(PATH, covertAccountToString(), false);
         }
     }
 
@@ -95,7 +95,7 @@ public class BankAccountServiceIMPL implements BankAccountService {
                             choice = (sc.nextLine()).toLowerCase();
                             if (choice.equals("yes")) {
                                 bankAccountList.remove(bankAccount);
-                                ReadWriteFile.writeFile(PATH, covertAccountToString(), false);
+                                ReadFile.writeFile(PATH, covertAccountToString(), false);
                                 break;
                             } else if (choice.equals("no")) {
                                 bankController.displayMainMenu();
@@ -154,7 +154,7 @@ public class BankAccountServiceIMPL implements BankAccountService {
     }
 
     public static List<BankAccount> covertStringToAccount() {
-        List<String> stringList = ReadWriteFile.readFile(PATH);
+        List<String> stringList = ReadFile.readFile(PATH);
         List<BankAccount> accountList = new ArrayList<>();
         String[] arrAccount;
         for (String line : stringList) {

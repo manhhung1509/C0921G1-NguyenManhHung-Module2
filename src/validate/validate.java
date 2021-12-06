@@ -7,4 +7,7 @@ public class validate {
     String phoneNumber = "^\\+?\\d{1,3}?[- .]?\\(?(?:\\d{2,3})\\)?[- .]?\\d\\d\\d[- .]?\\d\\d\\d\\d$";
     //diện tích phải là số lớn hơn 30
     String area = "^([3-9]\\d|[1-9]\\d{2,})$";
+    String name = "([A-Z])\\w+";
+    //số lơn hơn 30
+    String number = "^[3-9]\\d{1,}$";
 }

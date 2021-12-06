@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadWriteFile {
+public class ReadFile {
     public static void writeFile(String path, List<String> stringList, boolean append) {
         File file = new File(path);
         BufferedWriter bw = null;
